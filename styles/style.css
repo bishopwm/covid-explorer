@@ -1,3 +1,6 @@
 canvas {
     border: solid black 1px;
+    background-image: url('../images/world_map.svg');
+    background-size: cover;
+    visibility: hidden;
 }
