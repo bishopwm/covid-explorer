@@ -105,6 +105,8 @@ window.onload = () => {
         y: 530,
         image: countryAUSimage
     }
+
+
     
     // CONTROL KEYS  
     document.body.onkeydown = function(e){
@@ -121,6 +123,27 @@ window.onload = () => {
             avatar.y+=10; 
         }
     }
+    
+    let frames = 0;
+    let ready = false;
+
+        // DETECT COLLISIONS --> AVATAR/USA
+    function detectCollision(avatar, countryUSA){
+        var avatar = {x: avatar.x, y: avatar.y, width: 20, height: 20} 
+        var countryUSA = {x: countryUSA.x, y: countryUSA.y, width: 50, height: 40}
+
+        if (avatar.x < countryUSA.x + countryUSA.width &&
+        avatar.x + avatar.width > countryUSA.x &&
+        avatar.y < countryUSA.y + countryUSA.height &&
+        avatar.y + avatar.height > countryUSA.y) {
+        if(frames % 1 === 0){ready = true};
+        if(ready){
+            console.log('COLLISION! HOPE YOU HAVE INSURANCE, GURL!');
+            document.getElementById('current-country').innerHTML = 
+            `Current Country: United States`
+            }; 
+        }
+    }
       
     function animate(){   
         frames++;  
@@ -133,6 +156,7 @@ window.onload = () => {
         drawCountryIndia();
         drawCountryAUS();
         
+        detectCollision(avatar, countryUSA);
         animateId = window.requestAnimationFrame(animate);
     }
       //animate()
