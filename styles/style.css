@@ -1,6 +1,63 @@
+* {
+    font-family: 'Baloo Thambi 2', cursive;
+}
+
+body {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+    align-content: stretch;  
+}
+
+#start-button {
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    font-size: 2em;
+}
+
 canvas {
-    border: solid black 1px;
-    background-image: url('../images/world_map.svg');
-    background-size: cover;
+    background-image: url('../images/world_map_bw.jpg');
+    background-size: 1200px 800px;
+    background-position: 55% 0;
+    box-shadow: 6px 6px 1px rgba(77, 77, 77, 0.4);
+    border-radius: 10px;
     visibility: hidden;
+}
+
+aside {
+    visibility: hidden;
+    background-color: rgba(77, 77, 77, 0.4);
+    width: 280px;
+    height: 800px;
+    box-shadow: 6px 6px 1px rgba(58, 58, 58, 0.9);
+    border-radius: 10px;
+}
+
+#title-aside {
+    font-size: 2em;
+    margin: 0.5em 0.5em;
+    color: white;
+}
+
+#subtitle-aside {
+    font-size: 1.5em;
+}
+
+.sidebar-list {
+    background-color: white;
+    color: rgba(77, 77, 77);
+    border-radius: 10px;
+    list-style-type: none;
+    width: 220px;
+    height: 400px;
+    margin: 20px 20px;
+    padding: 10px 10px;
+}
+
+li:not(#current-position) {
+    font-weight: bolder;
+    color: black;
 }
