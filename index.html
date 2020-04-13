@@ -10,11 +10,31 @@
   </head>
   <body>
     <button id="start-button">Start Game</button>
+    <div id="instructions">
+      <h1 id="title">COVID EXPLORER</h1>
+      <hr>
+      <h2>Instructions:</h2>
+      <p>
+      Make it to every country while avoiding COVID-19. 
+      Be careful not to let your Explorer's health fall below 0, or that's game over!</br>
+     </p>
+     <ul id="instructions-list"> <h3 id="instructions-header">What affects my explorer's health?</h3>
+       <li>COVID-19 Virus Collisions</li>
+       <li>Visiting infected countries</li>
+     </ul>
+    </div>
     <div class="game-intro">
       <br />
       
     </div>
-
+    <div id="explorer-stats">
+      <h3>Explorer Stats</h3>
+      <ul class="explorer-stats-list">
+        <img id="heart-icon" src="../images/heart.png">
+        <li class="explorer-stats-list-item" id="explorer-health">100</li>
+        <li></li>
+      </ul>
+    </div>
     <div id="game-board">
       <canvas id="canvas" width="500" height="700"></canvas>
     </div>
@@ -23,13 +43,11 @@
       <ul class="sidebar-list">
         <h3 id ="subtitle-aside">Pandemic Panel</h3>
         <li class ="sidebar-list-item" id="current-position">Current Position:</li>
-        <li class ="sidebar-list-item" id="current-health">Current Health: 5</li>
         <hr><br>
-        
         <li class ="sidebar-list-item" id="current-country">Current Country:</li>
         <li class ="sidebar-list-item" id="cases">Reported Cases:</li>
         <li class ="sidebar-list-item" id="deaths">Deaths:</li>
-        <li class ="sidebar-list-item" id="health-score">Health Score:</li>
+        <li class ="sidebar-list-item" id="health-score">Health Risk Score:</li>
       </ul>
     </aside>
     <script type="text/javascript" src="js/index.js"></script>
