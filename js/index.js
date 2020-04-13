@@ -86,21 +86,25 @@ window.onload = () => {
     }
     // DECLARE OBJECTS - COUNTRIES
     let countryUSA = {
+        name: "United States",
         x: 170,
         y: 300,
         image: countryUSAimage
     }
     let countryUK = {
+        name: "United Kingdom",
         x: 490,
         y: 220,
         image: countryUKimage
     }
     let countryIndia = {
+        name: "India",
         x: 730,
         y: 330,
         image: countryIndiaimage
     }
     let countryAUS = {
+        name: "Australia",
         x: 930,
         y: 530,
         image: countryAUSimage
@@ -127,8 +131,8 @@ window.onload = () => {
     let frames = 0;
     let ready = false;
 
-        // DETECT COLLISIONS --> AVATAR/USA
-    function detectCollision(avatar, countryUSA){
+    // DETECT COLLISION --> AVATAR/USA
+    function detectCollisionUSA(avatar, countryUSA){
         var avatar = {x: avatar.x, y: avatar.y, width: 20, height: 20} 
         var countryUSA = {x: countryUSA.x, y: countryUSA.y, width: 50, height: 40}
 
@@ -138,13 +142,68 @@ window.onload = () => {
         avatar.y + avatar.height > countryUSA.y) {
         if(frames % 1 === 0){ready = true};
         if(ready){
-            console.log('COLLISION! HOPE YOU HAVE INSURANCE, GURL!');
             document.getElementById('current-country').innerHTML = 
-            `Current Country: United States`
+            `United States`
             }; 
+            document.getElementById('cases').innerHTML = `Reported Cases: ` + covidCases[1].active_cases;
+            document.getElementById('deaths').innerHTML = `Deaths: ` + covidCases[1].deaths;
+        }
+    }   
+    // DETECT COLLISION --> UK
+    function detectCollisionUK(avatar, countryUK){
+        var avatar = {x: avatar.x, y: avatar.y, width: 20, height: 20} 
+        var countryUK = {x: countryUK.x, y: countryUK.y, width: 50, height: 40}
+
+        if (avatar.x < countryUK.x + countryUK.width &&
+        avatar.x + avatar.width > countryUK.x &&
+        avatar.y < countryUK.y + countryUK.height &&
+        avatar.y + avatar.height > countryUK.y) {
+        if(frames % 1 === 0){ready = true};
+        if(ready){
+            document.getElementById('current-country').innerHTML = 
+            `United Kingdom`
+            }; 
+            document.getElementById('cases').innerHTML = `Reported Cases: ` + covidCases[6].active_cases;
+            document.getElementById('deaths').innerHTML = `Deaths: ` + covidCases[6].deaths;
+        }
+    }  
+    // DETECT COLLISION --> INDIA
+    function detectCollisionIndia(avatar, countryIndia){
+        var avatar = {x: avatar.x, y: avatar.y, width: 20, height: 20} 
+        var countryIndia = {x: countryIndia.x, y: countryIndia.y, width: 50, height: 40}
+
+        if (avatar.x < countryIndia.x + countryIndia.width &&
+        avatar.x + avatar.width > countryIndia.x &&
+        avatar.y < countryIndia.y + countryIndia.height &&
+        avatar.y + avatar.height > countryIndia.y) {
+        if(frames % 1 === 0){ready = true};
+        if(ready){
+            document.getElementById('current-country').innerHTML = 
+            `India`
+            };
+            document.getElementById('cases').innerHTML = `Reported Cases: ` + covidCases[21].active_cases;
+            document.getElementById('deaths').innerHTML = `Deaths: ` + covidCases[21].deaths;
         }
     }
-      
+    // DETECT COLLISION --> AUSTRALIA
+    function detectCollisionAUS(avatar, countryAUS){
+        var avatar = {x: avatar.x, y: avatar.y, width: 20, height: 20} 
+        var countryAUS = {x: countryAUS.x, y: countryAUS.y, width: 50, height: 40}
+
+        if (avatar.x < countryAUS.x + countryAUS.width &&
+        avatar.x + avatar.width > countryAUS.x &&
+        avatar.y < countryAUS.y + countryAUS.height &&
+        avatar.y + avatar.height > countryAUS.y) {
+        if(frames % 1 === 0){ready = true};
+        if(ready){
+            document.getElementById('current-country').innerHTML = 
+            `Australia`
+            }; 
+            document.getElementById('cases').innerHTML = `Reported Cases: ` + covidCases[29].active_cases;
+            document.getElementById('deaths').innerHTML = `Deaths: ` + covidCases[29].deaths;
+        }
+    }
+
     function animate(){   
         frames++;  
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -155,8 +214,11 @@ window.onload = () => {
         drawCountryUK();
         drawCountryIndia();
         drawCountryAUS();
-        
-        detectCollision(avatar, countryUSA);
+    
+        detectCollisionUSA(avatar, countryUSA);
+        detectCollisionUK(avatar, countryUK);
+        detectCollisionIndia(avatar, countryIndia);
+        detectCollisionAUS(avatar, countryAUS);
         animateId = window.requestAnimationFrame(animate);
     }
       //animate()
