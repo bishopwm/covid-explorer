@@ -135,7 +135,7 @@ window.onload = () => {
         w: 40,
         h: 40,
         image: avatarimage,
-        health: 150
+        health: 30
     }
 
     // DECLARE COUNTRIES
@@ -327,10 +327,13 @@ window.onload = () => {
         if(avatar.health <= 0){
             console.log("dead!", animateId)
             window.cancelAnimationFrame(animateId);
+            if(alert('Your explorer is dead! Game over. Time to restart.')){} 
+                else
+                window.location.reload();
         } else {
             animateId = window.requestAnimationFrame(animate);
         }
-        //endGame();
+        //animateId = window.requestAnimationFrame(animate);
         
 
     }
