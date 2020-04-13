@@ -62,21 +62,22 @@ canvas {
 
 #explorer-stats {
     color: white;
-    width: 600px;
-    height: 100px;
+    width: 260px;
+    height: 130px;
     position: absolute;
     visibility: hidden;
     font-size: 1.5em;
     background-color: rgba(77, 77, 77, 0.4);
     border-radius: 10px;
     margin-top: 10px;
-    margin-left: -380px;
+    margin-left: -550px;
 }
 
 .explorer-stats-list {
     list-style-type: none;
     margin-top: -15px;
     font-size: 0.75em;
+    display: inline-block;
 }
 
 .explorer-stats-list-item {
@@ -94,10 +95,24 @@ canvas {
     margin-left: 3px;
 }
 
+#current-position {
+    display: inline-block;
+    width: 100px;
+    margin-left: 8px;
+    padding-bottom: 5px;
+}
+
 #heart-icon {
     width: 35px;
     height: 35px;
     margin-left: -35px;
+}
+
+#pin-icon {
+    width: 24px;
+    height: 24px;
+    margin-left: -30px;
+    margin-top: 10px;
 }
 
 aside {
@@ -139,12 +154,46 @@ aside {
     margin-top: 50px;
 }
 
+#cases-descriptor {
+    margin-top: -20px;
+    color: #093047;
+    font-size: 1.5em;
+}
+
+#cases {
+    font-size: 2.4em;
+    /* letter-spacing: 0.1em; */
+    color: #093047;
+}
+
+#deaths-descriptor {
+    margin-top: -20px;
+    color: maroon;;
+    font-size: 1.5em;
+}
+
 #deaths {
     color: maroon;
+    font-size: 2.4em;
+    /* letter-spacing: 0.1em; */
+    
+}
+
+#health-score {
+    color: #b56533;
+    font-size: 2.4em;
+    /* letter-spacing: 0.1em; */
+}
+
+#health-score-descriptor {
+    color: #b56533;
+    margin-top: -20px;
+    font-size: 1.5em;
 }
 
 #current-country {
-    font-size: 1.2em;
+    font-size: 1.6em;
+    letter-spacing: 0.1em;
 }
 
 .checkmarks {
