@@ -12,8 +12,6 @@ window.onload = () => {
     const canvas = document.getElementById('canvas');
     canvas.width = 1100;
     canvas.height = 800;
-
-    // CANVAS BOILER PLATE CODE
     const ctx = canvas.getContext('2d');
     
     let animateId = null;
@@ -137,7 +135,7 @@ window.onload = () => {
         w: 40,
         h: 40,
         image: avatarimage,
-        health: 100
+        health: 150
     }
 
     // DECLARE COUNTRIES
@@ -229,12 +227,13 @@ window.onload = () => {
 
     // DETECT COLLISION --> AVATAR/USA
     function detectCollisionUSA(avatar, countryUSA){
+        //console.log(countryUSA)
         var avatar = {x: avatar.x, y: avatar.y, width: 20, height: 20}; 
-        var countryUSA = {x: countryUSA.x, y: countryUSA.y, width: 50, height: 40};
+        //var countryUSA = {x: countryUSA.x, y: countryUSA.y, width: 50, height: 40};
 
-        if(avatar.x < countryUSA.x + countryUSA.width &&
+        if(avatar.x < countryUSA.x + countryUSA.w &&
         avatar.x + avatar.width > countryUSA.x &&
-        avatar.y < countryUSA.y + countryUSA.height &&
+        avatar.y < countryUSA.y + countryUSA.h &&
         avatar.y + avatar.height > countryUSA.y) {
         if(frames % 1 === 0){ready = true};
         if(ready){
@@ -243,6 +242,7 @@ window.onload = () => {
             }; 
             document.getElementById('cases').innerHTML = `Reported Cases: ` + covidCases[1].active_cases;
             document.getElementById('deaths').innerHTML = `Deaths: ` + covidCases[1].deaths;
+            //console.log(countryUSA);
             document.getElementById('health-score').innerHTML = `Health Risk Score: ` + countryUSA.healthScore;
         };
     }   
@@ -318,15 +318,25 @@ window.onload = () => {
         drawCountryAUS();
     
         detectCovidCollision(avatar);
+        
         detectCollisionUSA(avatar, countryUSA);
         detectCollisionUK(avatar, countryUK);
         detectCollisionIndia(avatar, countryIndia);
         detectCollisionAUS(avatar, countryAUS);
+
+        if(avatar.health <= 0){
+            console.log("dead!", animateId)
+            window.cancelAnimationFrame(animateId);
+        } else {
+            animateId = window.requestAnimationFrame(animate);
+        }
         //endGame();
-        animateId = window.requestAnimationFrame(animate);
+        
+
     }
       //animate()
-      //window.cancelAnimationFrame(animateId) to stop it
+      console.log("canceling")
+       //to stop it
       //requestAnimationFrame cancelAnimationFrame(id)
     
     function startGame() {
