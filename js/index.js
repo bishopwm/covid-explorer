@@ -49,18 +49,22 @@ window.onload = () => {
     function enlargeIconUSA(){
         countryUSA.w = 80;
         countryUSA.h = 50;
+        document.getElementById("checkmark-usa").src = "../images/checkmark.png";
     }
     function enlargeIconUK(){
         countryUK.w = 80;
         countryUK.h = 50;
+        document.getElementById("checkmark-uk").src = "../images/checkmark.png";
     }
     function enlargeIconIndia(){
         countryIndia.w = 80;
         countryIndia.h = 50;
+        document.getElementById("checkmark-india").src = "../images/checkmark.png";
     }
     function enlargeIconAUS(){
         countryAUS.w = 80;
         countryAUS.h = 50;
+        document.getElementById("checkmark-aus").src = "../images/checkmark.png";
     }
 
     // DRAW START AND END POINTS
@@ -132,7 +136,7 @@ window.onload = () => {
         w: 40,
         h: 40,
         image: avatarimage,
-        health: 30
+        health: 3000
     }
 
     // DECLARE COUNTRIES
@@ -215,13 +219,6 @@ window.onload = () => {
         )
     }
 
-    // DETECT GAME OVER (HEALTHSCORE <= 0)
-    function endGame (){
-        if(avatar.health <= 0){
-            alert("GAME OVER!")
-        }
-    }
-
     // DETECT COLLISION --> AVATAR/USA
     function detectCollisionUSA(avatar, countryUSA){
         //console.log(countryUSA)
@@ -242,6 +239,8 @@ window.onload = () => {
             //console.log(countryUSA);
             document.getElementById('health-score').innerHTML = `Health Risk Score: ` + countryUSA.healthScore;
         };
+        let usaCheck = document.getElementById('checkmark-usa').src;
+        usaCheck = "../images/checkmark.png";
     }   
     // DETECT COLLISION --> AVATAR/UK
     function detectCollisionUK(avatar, countryUK){
