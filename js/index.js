@@ -42,7 +42,7 @@ window.onload = () => {
 
     function drawCovids(){   
     covids.forEach((covid) => { 
-        ctx.drawImage(covid.image, covid.x--, covid.y--, 50, 40)
+        ctx.drawImage(covid.image, covid.x--, covid.y--, covid.w, covid.h)
         })
     }
 
@@ -52,6 +52,8 @@ window.onload = () => {
     let covid = {
         x: 1000,
         y: 790,
+        w: 50,
+        h: 40,
         image: covidimage
     }
     if(covids.length <= 25){
@@ -61,7 +63,7 @@ window.onload = () => {
 
     // DRAW AVATAR
     function drawAvatar(){
-        ctx.drawImage(avatar.image, avatar.x, avatar.y, 20, 20)
+        ctx.drawImage(avatar.image, avatar.x, avatar.y, avatar.w, avatar.h)
     }
 
     // DRAW INDIVIDUAL COUNTRIES
@@ -82,6 +84,8 @@ window.onload = () => {
     let avatar = {
         x: 10,
         y: 10,
+        w: 20,
+        h: 20,
         image: avatarimage
     }
     // DECLARE OBJECTS - COUNTRIES
@@ -130,6 +134,22 @@ window.onload = () => {
     
     let frames = 0;
     let ready = false;
+
+    // DETECT COVID COLLISION
+    function detectCovidCollision(avatar){
+        covids.forEach(
+            (covid) => {
+                if(
+                    avatar.x < covid.x + covid.w &&
+                    avatar.x + avatar.w > covid.x &&
+                    avatar.y < covid.y + covid.h &&
+                    avatar.y + avatar.h > covid.y    
+                ){
+                    console.log("Avatar struck by COVID!");
+                }
+            }
+        )
+    }
 
     // DETECT COLLISION --> AVATAR/USA
     function detectCollisionUSA(avatar, countryUSA){
@@ -215,6 +235,7 @@ window.onload = () => {
         drawCountryIndia();
         drawCountryAUS();
     
+        detectCovidCollision(avatar);
         detectCollisionUSA(avatar, countryUSA);
         detectCollisionUK(avatar, countryUK);
         detectCollisionIndia(avatar, countryIndia);
