@@ -20,7 +20,7 @@ window.onload = () => {
 
     // CREATE NEW IMAGES
     let avatarimage = new Image()
-    avatarimage.src = 'images/avatar.png'
+    avatarimage.src = 'images/traveler.png'
 
     let covidimage = new Image()
     covidimage.src = 'images/covid.png'
@@ -37,6 +37,12 @@ window.onload = () => {
     let countryAUSimage = new Image()
     countryAUSimage.src = 'images/countryAUS.png'
     
+    let airportimage = new Image()
+    airportimage.src = 'images/airport.png'
+
+    let northpoleimage = new Image()
+    northpoleimage.src = 'images/northpole.png'
+
     // DISPLAY AVATAR CURRENT POSITION
     function recordPosition(){
         document.getElementById('current-position').innerHTML = "Current Position:  " + avatar.x +",  "+ avatar.y
@@ -57,6 +63,16 @@ window.onload = () => {
     function enlargeIconAUS(){
         countryAUS.w = 80;
         countryAUS.h = 50;
+    }
+
+    // DRAW START AND END POINTS
+
+    function drawStart(){
+        ctx.drawImage(airport.image, airport.x, airport.y, airport.w, airport.h)
+    }
+
+    function drawEnd(){
+        ctx.drawImage(northpole.image, northpole.x, northpole.y, northpole.w, northpole.h)
     }
 
     // DRAW COVID ICONS
@@ -98,12 +114,28 @@ window.onload = () => {
         ctx.drawImage(countryAUS.image, countryAUS.x, countryAUS.y, countryAUS.w, countryAUS.h)  
     }
 
+    // DECLARE START AND END POINT OBJECTS
+    let airport = {
+        x: 20,
+        y: 700,
+        w: 120,
+        h: 85,
+        image: airportimage
+    }
+
+    let northpole = {
+        x: 860,
+        y: 25,
+        w: 80,
+        h: 120,
+        image: northpoleimage
+    }
     // DECLARE AVATAR
     let avatar = {
-        x: 60,
-        y: 700,
-        w: 20,
-        h: 20,
+        x: 170,
+        y: 740,
+        w: 40,
+        h: 40,
         image: avatarimage,
         health: 100
     }
@@ -175,7 +207,7 @@ window.onload = () => {
                     avatar.y < covid.y + covid.h &&
                     avatar.y + avatar.h > covid.y    
                 ){
-                    console.log("Avatar struck by COVID")
+                    console.log("Explorer struck by COVID")
                     // avatar.health -= 25;
                     // document.getElementById('explorer-health').innerHTML = avatar.health;
                     if(frames % 1 === 0){ready = true};
@@ -277,6 +309,8 @@ window.onload = () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawAvatar();
         recordPosition();
+        drawStart();
+        drawEnd();
         drawCovids();
         drawCountryUSA();
         drawCountryUK();
