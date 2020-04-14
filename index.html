@@ -19,8 +19,8 @@
       Be careful not to let your Explorer's health fall below 0, or that's game over!</br>
      </p>
      <ul id="instructions-list"> <h3 id="instructions-header">What affects my explorer's health?</h3>
-       <li>COVID-19 Virus Collisions</li>
-       <li>Visiting infected countries</li>
+       <li>COVID-19 Virus [ -1 Health for duration of hit]</li>
+       <li>Visiting infected countries [ - 25 Health ]</li>
      </ul>
     </div>
     <div class="game-intro">
@@ -31,7 +31,7 @@
       <h3>Explorer Stats</h3>
       <ul class="explorer-stats-list">
         <img id="heart-icon" src="../images/heart.png">
-        <li class="explorer-stats-list-item" id="explorer-health">100</li>
+        <li class="explorer-stats-list-item" id="explorer-health">200</li>
         <img id="pin-icon" src="../images/pinpoint.png">
         <li class ="explorer-stats-list-item" id="current-position">Current Position:</li>
       </ul>
@@ -59,6 +59,7 @@
         <li><img class= "checkmarks" id="checkmark-aus" src="../images/xmark.png">  Australia</li>
       </ul>
     </aside>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/covid_cases.js"></script>
   </body>

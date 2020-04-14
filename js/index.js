@@ -152,7 +152,7 @@ window.onload = () => {
         w: 40,
         h: 40,
         image: avatarimage,
-        health: 3000
+        health: 200
     }
 
     // DECLARE COUNTRIES
@@ -248,15 +248,17 @@ window.onload = () => {
 
     // DETECT COLLISION --> AVATAR/USA
     function detectCollisionUSA(avatar, countryUSA){
-        var avatar = {x: avatar.x, y: avatar.y, width: 20, height: 20}; 
+        var avatar = {x: avatar.x, y: avatar.y, width: 20, height: 20, health: avatar.health}; 
         //var countryUSA = {x: countryUSA.x, y: countryUSA.y, width: 50, height: 40};
-
+        //console.log(avatar.health);
         if(avatar.x < countryUSA.x + countryUSA.w &&
         avatar.x + avatar.width > countryUSA.x &&
         avatar.y < countryUSA.y + countryUSA.h &&
         avatar.y + avatar.height > countryUSA.y) {
         if(frames % 1 === 0){ready = true};
         if(ready){
+            avatar.health -= 25;
+            document.getElementById('explorer-health').innerHTML = avatar.health;
             enlargeIconUSA();
             document.getElementById('current-country').innerHTML = `United States`
             }; 
@@ -267,10 +269,11 @@ window.onload = () => {
         };
         let usaCheck = document.getElementById('checkmark-usa').src;
         usaCheck = "../images/checkmark.png";
+
     }   
     // DETECT COLLISION --> AVATAR/UK
     function detectCollisionUK(avatar, countryUK){
-        var avatar = {x: avatar.x, y: avatar.y, width: 20, height: 20} 
+        var avatar = {x: avatar.x, y: avatar.y, width: 20, height: 20, health: avatar.health} 
         //var countryUK = {x: countryUK.x, y: countryUK.y, width: 50, height: 40}
 
         if (avatar.x < countryUK.x + countryUK.w &&
@@ -279,6 +282,8 @@ window.onload = () => {
         avatar.y + avatar.height > countryUK.y) {
         if(frames % 1 === 0){ready = true};
         if(ready){
+            avatar.health -= 25;
+            document.getElementById('explorer-health').innerHTML = avatar.health;
             enlargeIconUK();
             document.getElementById('current-country').innerHTML = `United Kingdom`
             }; 
@@ -288,7 +293,7 @@ window.onload = () => {
         };
     } 
     function detectCollisionChina(avatar, countryChina){
-        var avatar = {x: avatar.x, y: avatar.y, width: 20, height: 20} 
+        var avatar = {x: avatar.x, y: avatar.y, width: 20, height: 20, health: avatar.health} 
         //var countryUK = {x: countryUK.x, y: countryUK.y, width: 50, height: 40}
 
         if (avatar.x < countryChina.x + countryChina.w &&
@@ -297,6 +302,8 @@ window.onload = () => {
         avatar.y + avatar.height > countryChina.y) {
         if(frames % 1 === 0){ready = true};
         if(ready){
+            avatar.health -= 25;
+            document.getElementById('explorer-health').innerHTML = avatar.health;
             enlargeIconChina();
             document.getElementById('current-country').innerHTML = `China`
             }; 
@@ -307,7 +314,7 @@ window.onload = () => {
     } 
     // DETECT COLLISION --> AVATAR/INDIA
     function detectCollisionIndia(avatar, countryIndia){
-        var avatar = {x: avatar.x, y: avatar.y, width: 20, height: 20} 
+        var avatar = {x: avatar.x, y: avatar.y, width: 20, height: 20, health: avatar.health} 
         //var countryIndia = {x: countryIndia.x, y: countryIndia.y, width: 50, height: 40}
 
         if (avatar.x < countryIndia.x + countryIndia.w &&
@@ -316,6 +323,8 @@ window.onload = () => {
         avatar.y + avatar.height > countryIndia.y) {
         if(frames % 1 === 0){ready = true};
         if(ready){
+            avatar.health -= 25;
+            document.getElementById('explorer-health').innerHTML = avatar.health;
             enlargeIconIndia();
             document.getElementById('current-country').innerHTML = `India`
             };
@@ -326,7 +335,7 @@ window.onload = () => {
     }
     // DETECT COLLISION --> AVATAR/AUSTRALIA
     function detectCollisionAUS(avatar, countryAUS){
-        var avatar = {x: avatar.x, y: avatar.y, width: 20, height: 20} 
+        var avatar = {x: avatar.x, y: avatar.y, width: 20, height: 20, health: avatar.health} 
         //var countryAUS = {x: countryAUS.x, y: countryAUS.y, width: 50, height: 40}
 
         if (avatar.x < countryAUS.x + countryAUS.w &&
@@ -335,6 +344,8 @@ window.onload = () => {
         avatar.y + avatar.height > countryAUS.y) {
         if(frames % 1 === 0){ready = true};
         if(ready){
+            avatar.health -= 25;
+            document.getElementById('explorer-health').innerHTML = avatar.health;
             enlargeIconAUS();
             document.getElementById('current-country').innerHTML = `Australia`
             }; 
