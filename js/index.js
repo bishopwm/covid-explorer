@@ -23,6 +23,9 @@ window.onload = () => {
     let covidimage = new Image()
     covidimage.src = 'images/covid.png'
 
+    let maskimage = new Image()
+    maskimage.src = 'images/mask.png'
+
     let countryUSAimage = new Image()
     countryUSAimage.src = 'images/americanFlag.png'
 
@@ -97,6 +100,27 @@ window.onload = () => {
         ctx.drawImage(covid.image, covid.x-=2, covid.y-=2, covid.w, covid.h)
         })
     }
+
+    function drawMasks(){
+        masks.forEach((mask) => { 
+            ctx.drawImage(mask.image, mask.x-=2, mask.y-=2, mask.w, mask.h)
+            })       
+    }
+    
+    let masks = []       
+    setInterval(function(){
+    let mask = {
+        x: Math.random()*canvas.width,
+        y: Math.random()*canvas.width,
+        w: 60,
+        h: 40,
+        image: maskimage
+    }
+    if(masks.length <= 150){
+        masks.push(mask);
+    }
+    }, 1000)
+
 
     let covids = []       
     setInterval(function(){
@@ -212,7 +236,7 @@ window.onload = () => {
     }
 
     let gameOver = false;
-    let gameInPlay = true;
+    //let gameInPlay = true;
 
     // CONTROL KEYS  
     document.body.onkeydown = function(e){
@@ -391,6 +415,7 @@ window.onload = () => {
         //toggleGameState();
         drawStartEnd();
         drawCovids();
+        drawMasks();
         drawCountryUSA();
         drawCountryUK();
         drawCountryChina();
