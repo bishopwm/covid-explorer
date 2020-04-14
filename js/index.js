@@ -80,8 +80,12 @@ window.onload = () => {
         countryAUS.countryVisited = true;
     }
 
-    // DRAW START AND END POINTS, DETECT WIN
+    // PAUSE/PLAY TOGGLe
+    // function toggleGameState() {
+    //     document.getElementById("pause-button").addEventListener
+    // }
 
+    // DRAW START AND END POINTS, DETECT WIN
     function drawStartEnd(){
         ctx.drawImage(airport.image, airport.x, airport.y, airport.w, airport.h)
         ctx.drawImage(northpole.image, northpole.x, northpole.y, northpole.w, northpole.h)
@@ -208,6 +212,7 @@ window.onload = () => {
     }
 
     let gameOver = false;
+    let gameInPlay = true;
 
     // CONTROL KEYS  
     document.body.onkeydown = function(e){
@@ -383,6 +388,7 @@ window.onload = () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         drawAvatar();
         recordPosition();
+        //toggleGameState();
         drawStartEnd();
         drawCovids();
         drawCountryUSA();
@@ -412,14 +418,8 @@ window.onload = () => {
         } else {
             animateId = window.requestAnimationFrame(animate);
         }
-        //animateId = window.requestAnimationFrame(animate);
-        
-
     }
-      //animate()
-      console.log("canceling")
-       //to stop it
-      //requestAnimationFrame cancelAnimationFrame(id)
+      //console.log("canceling")
     
     function startGame() {
         document.getElementById("start-button").remove();
