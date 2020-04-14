@@ -24,16 +24,19 @@ window.onload = () => {
     covidimage.src = 'images/covid.png'
 
     let countryUSAimage = new Image()
-    countryUSAimage.src = 'images/american-flag.png'
+    countryUSAimage.src = 'images/americanFlag.png'
 
     let countryUKimage = new Image()
-    countryUKimage.src = 'images/countryUK.jpg'
+    countryUKimage.src = 'images/britishFlag.png'
 
     let countryIndiaimage = new Image()
-    countryIndiaimage.src = 'images/countryIn.png'
+    countryIndiaimage.src = 'images/indianFlag.png'
+
+    let countryChinaimage = new Image()
+    countryChinaimage.src = 'images/chineseFlag.png'
 
     let countryAUSimage = new Image()
-    countryAUSimage.src = 'images/countryAUS.png'
+    countryAUSimage.src = 'images/australianFLag.png'
     
     let airportimage = new Image()
     airportimage.src = 'images/airport.png'
@@ -48,25 +51,31 @@ window.onload = () => {
     // ENLARGE COUNTRY ICONS ON COLLISION
     function enlargeIconUSA(){
         countryUSA.w = 80;
-        countryUSA.h = 50;
+        countryUSA.h = 90;
         document.getElementById("checkmark-usa").src = "../images/checkmark.png";
         countryUSA.countryVisited = true;
     }
     function enlargeIconUK(){
         countryUK.w = 80;
-        countryUK.h = 50;
+        countryUK.h = 90;
         document.getElementById("checkmark-uk").src = "../images/checkmark.png";
         countryUK.countryVisited = true;
     }
+    function enlargeIconChina(){
+        countryChina.w = 80;
+        countryChina.h = 90;
+        document.getElementById("checkmark-china").src = "../images/checkmark.png";
+        countryChina.countryVisited = true;
+    }
     function enlargeIconIndia(){
         countryIndia.w = 80;
-        countryIndia.h = 50;
+        countryIndia.h = 90;
         document.getElementById("checkmark-india").src = "../images/checkmark.png";
         countryIndia.countryVisited = true;
     }
     function enlargeIconAUS(){
         countryAUS.w = 80;
-        countryAUS.h = 50;
+        countryAUS.h = 90;
         document.getElementById("checkmark-aus").src = "../images/checkmark.png";
         countryAUS.countryVisited = true;
     }
@@ -110,6 +119,9 @@ window.onload = () => {
     function drawCountryUK(){
         ctx.drawImage(countryUK.image, countryUK.x, countryUK.y, countryUK.w, countryUK.h)
     }
+    function drawCountryChina(){
+        ctx.drawImage(countryChina.image, countryChina.x, countryChina.y, countryChina.w, countryChina.h)
+    }
     function drawCountryIndia(){
         ctx.drawImage(countryIndia.image, countryIndia.x, countryIndia.y, countryIndia.w, countryIndia.h)  
     }
@@ -147,9 +159,9 @@ window.onload = () => {
     let countryUSA = {
         name: "United States",
         x: 170,
-        y: 300,
-        w: 50,
-        h: 30,
+        y: 275,
+        w: 60,
+        h: 65,
         image: countryUSAimage,
         casesPerMillion: covidCases[1].total_cases_per_1m_population,
         countryVisited: false
@@ -158,18 +170,28 @@ window.onload = () => {
         name: "United Kingdom",
         x: 490,
         y: 220,
-        w: 50,
-        h: 30,
+        w: 60,
+        h: 65,
         image: countryUKimage,
         casesPerMillion: covidCases[6].total_cases_per_1m_population,
+        countryVisited: false
+    }
+    let countryChina = {
+        name: "China",
+        x: 820,
+        y: 300,
+        w: 60,
+        h: 65,
+        image: countryChinaimage,
+        casesPerMillion: covidCases[212].total_cases_per_1m_population,
         countryVisited: false
     }
     let countryIndia = {
         name: "India",
         x: 730,
         y: 330,
-        w: 50,
-        h: 30,
+        w: 60,
+        h: 65,
         image: countryIndiaimage,
         casesPerMillion: covidCases[21].total_cases_per_1m_population,
         countryVisited: false
@@ -178,8 +200,8 @@ window.onload = () => {
         name: "Australia",
         x: 930,
         y: 530,
-        w: 50,
-        h: 30,
+        w: 60,
+        h: 65,
         image: countryAUSimage,
         casesPerMillion: covidCases[29].total_cases_per_1m_population,
         countryVisited: false
@@ -238,7 +260,7 @@ window.onload = () => {
             enlargeIconUSA();
             document.getElementById('current-country').innerHTML = `United States`
             }; 
-            document.getElementById('cases').innerHTML = covidCases[1].active_cases;
+            document.getElementById('cases').innerHTML = covidCases[1].cases;
             document.getElementById('deaths').innerHTML = covidCases[1].deaths;
             //console.log(countryUSA);
             document.getElementById('health-score').innerHTML = countryUSA.casesPerMillion;
@@ -260,11 +282,29 @@ window.onload = () => {
             enlargeIconUK();
             document.getElementById('current-country').innerHTML = `United Kingdom`
             }; 
-            document.getElementById('cases').innerHTML = covidCases[6].active_cases;
+            document.getElementById('cases').innerHTML = covidCases[6].cases;
             document.getElementById('deaths').innerHTML = covidCases[6].deaths;
             document.getElementById('health-score').innerHTML = countryUK.casesPerMillion;
         };
-    }  
+    } 
+    function detectCollisionChina(avatar, countryChina){
+        var avatar = {x: avatar.x, y: avatar.y, width: 20, height: 20} 
+        //var countryUK = {x: countryUK.x, y: countryUK.y, width: 50, height: 40}
+
+        if (avatar.x < countryChina.x + countryChina.w &&
+        avatar.x + avatar.width > countryChina.x &&
+        avatar.y < countryChina.y + countryChina.h &&
+        avatar.y + avatar.height > countryChina.y) {
+        if(frames % 1 === 0){ready = true};
+        if(ready){
+            enlargeIconChina();
+            document.getElementById('current-country').innerHTML = `China`
+            }; 
+            document.getElementById('cases').innerHTML = covidCases[212].cases;
+            document.getElementById('deaths').innerHTML = covidCases[212].deaths;
+            document.getElementById('health-score').innerHTML = countryChina.casesPerMillion;
+        };
+    } 
     // DETECT COLLISION --> AVATAR/INDIA
     function detectCollisionIndia(avatar, countryIndia){
         var avatar = {x: avatar.x, y: avatar.y, width: 20, height: 20} 
@@ -279,7 +319,7 @@ window.onload = () => {
             enlargeIconIndia();
             document.getElementById('current-country').innerHTML = `India`
             };
-            document.getElementById('cases').innerHTML = covidCases[21].active_cases;
+            document.getElementById('cases').innerHTML = covidCases[21].cases;
             document.getElementById('deaths').innerHTML = covidCases[21].deaths;
             document.getElementById('health-score').innerHTML = countryIndia.casesPerMillion;
         };
@@ -298,7 +338,7 @@ window.onload = () => {
             enlargeIconAUS();
             document.getElementById('current-country').innerHTML = `Australia`
             }; 
-            document.getElementById('cases').innerHTML = covidCases[29].active_cases;
+            document.getElementById('cases').innerHTML = covidCases[29].cases;
             document.getElementById('deaths').innerHTML = covidCases[29].deaths;
             document.getElementById('health-score').innerHTML = countryAUS.casesPerMillion;
         };
@@ -313,6 +353,7 @@ window.onload = () => {
         drawCovids();
         drawCountryUSA();
         drawCountryUK();
+        drawCountryChina();
         drawCountryIndia();
         drawCountryAUS();
     
@@ -320,6 +361,7 @@ window.onload = () => {
         
         detectCollisionUSA(avatar, countryUSA);
         detectCollisionUK(avatar, countryUK);
+        detectCollisionChina(avatar, countryChina);
         detectCollisionIndia(avatar, countryIndia);
         detectCollisionAUS(avatar, countryAUS);
 
