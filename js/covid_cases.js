@@ -1,21 +1,23 @@
-// var myHeaders = new Headers();
-// myHeaders.append("X-RapidAPI-Key", "8e983a8afemsh48d560cda2e9f8bp1cfb60jsn5380fb86e94b");
-// myHeaders.append("X-RapidAPI-Host", "coronavirus-monitor.p.rapidapi.com");
+/// API DATA
 
-// var requestOptions = {
-//   method: 'GET',
-//   headers: myHeaders,
-//   redirect: 'follow'
-// };
+var myHeaders = new Headers();
+myHeaders.append("X-RapidAPI-Key", "8e983a8afemsh48d560cda2e9f8bp1cfb60jsn5380fb86e94b");
+myHeaders.append("X-RapidAPI-Host", "coronavirus-monitor.p.rapidapi.com");
 
-// var obj;
+var requestOptions = {
+  method: 'GET',
+  headers: myHeaders,
+  redirect: 'follow'
+};
 
-// fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.php", requestOptions)
-// .then(response => response.json())
-// .then(data => obj = data)
-// .then(() => console.log(obj));
+var obj;
 
+fetch("https://coronavirus-monitor.p.rapidapi.com/coronavirus/cases_by_country.php", requestOptions)
+.then(response => response.json())
+.then(data => obj = data)
+.then(() => console.log("US Cases " + obj.countries_stat[1].cases));
 
+/// HARD CODED DATA BEING USED CURRENTLY:
 let covidCases = [
        {
           "country_name":"",

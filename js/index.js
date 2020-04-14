@@ -80,7 +80,7 @@ window.onload = () => {
         countryAUS.countryVisited = true;
     }
 
-    // DRAW START AND END POINTS
+    // DRAW START AND END POINTS, DETECT WIN
 
     function drawStartEnd(){
         ctx.drawImage(airport.image, airport.x, airport.y, airport.w, airport.h)
@@ -148,9 +148,9 @@ window.onload = () => {
     // DECLARE AVATAR
     let avatar = {
         x: 170,
-        y: 740,
-        w: 40,
-        h: 40,
+        y: 720,
+        w: 60,
+        h: 60,
         image: avatarimage,
         health: 200
     }
@@ -207,6 +207,8 @@ window.onload = () => {
         countryVisited: false
     }
 
+    let gameOver = false;
+
     // CONTROL KEYS  
     document.body.onkeydown = function(e){
         if(e.keyCode == '38'){ //Move up
@@ -223,6 +225,32 @@ window.onload = () => {
         }
     }
     
+    // DETECT WIN
+    function detectWin(avatar, northpole){
+        //var avatar = {x: avatar.x, y: avatar.y, width: avatar.w, height: avatar.h, health: avatar.health}; 
+       // var northpole = {x: northpole.x, y: northpole.y, width: northpole.w, height: northpole.h}
+        
+        if(avatar.x < northpole.x + northpole.w &&
+        avatar.x + avatar.w > northpole.x &&
+        avatar.y < northpole.y + northpole.h &&
+        avatar.y + avatar.h > northpole.y) {
+                console.log("winner!");
+
+                if(
+                    countryUSA.countryVisited === true &&
+                    countryUK.countryVisited === true &&
+                    countryChina.countryVisited === true &&
+                    countryIndia.countryVisited === true &&
+                    countryAUS.countryVisited === true
+                ){
+                    gameOver = true;
+                    window.cancelAnimationFrame(animateId);
+                    alert('Well done! You win!');
+                    
+                }
+        };
+    }
+
     // DETECT COVID COLLISION
     let frames = 0;
     let ready = false;
@@ -249,8 +277,7 @@ window.onload = () => {
     // DETECT COLLISION --> AVATAR/USA
     function detectCollisionUSA(avatar, countryUSA){
         var avatar = {x: avatar.x, y: avatar.y, width: 20, height: 20, health: avatar.health}; 
-        //var countryUSA = {x: countryUSA.x, y: countryUSA.y, width: 50, height: 40};
-        //console.log(avatar.health);
+       
         if(avatar.x < countryUSA.x + countryUSA.w &&
         avatar.x + avatar.width > countryUSA.x &&
         avatar.y < countryUSA.y + countryUSA.h &&
@@ -264,7 +291,6 @@ window.onload = () => {
             }; 
             document.getElementById('cases').innerHTML = covidCases[1].cases;
             document.getElementById('deaths').innerHTML = covidCases[1].deaths;
-            //console.log(countryUSA);
             document.getElementById('health-score').innerHTML = countryUSA.casesPerMillion;
         };
         let usaCheck = document.getElementById('checkmark-usa').src;
@@ -274,7 +300,6 @@ window.onload = () => {
     // DETECT COLLISION --> AVATAR/UK
     function detectCollisionUK(avatar, countryUK){
         var avatar = {x: avatar.x, y: avatar.y, width: 20, height: 20, health: avatar.health} 
-        //var countryUK = {x: countryUK.x, y: countryUK.y, width: 50, height: 40}
 
         if (avatar.x < countryUK.x + countryUK.w &&
         avatar.x + avatar.width > countryUK.x &&
@@ -292,9 +317,9 @@ window.onload = () => {
             document.getElementById('health-score').innerHTML = countryUK.casesPerMillion;
         };
     } 
+    // DETECT COLLISION --> AVATAR/CHINA
     function detectCollisionChina(avatar, countryChina){
         var avatar = {x: avatar.x, y: avatar.y, width: 20, height: 20, health: avatar.health} 
-        //var countryUK = {x: countryUK.x, y: countryUK.y, width: 50, height: 40}
 
         if (avatar.x < countryChina.x + countryChina.w &&
         avatar.x + avatar.width > countryChina.x &&
@@ -315,7 +340,6 @@ window.onload = () => {
     // DETECT COLLISION --> AVATAR/INDIA
     function detectCollisionIndia(avatar, countryIndia){
         var avatar = {x: avatar.x, y: avatar.y, width: 20, height: 20, health: avatar.health} 
-        //var countryIndia = {x: countryIndia.x, y: countryIndia.y, width: 50, height: 40}
 
         if (avatar.x < countryIndia.x + countryIndia.w &&
         avatar.x + avatar.width > countryIndia.x &&
@@ -336,7 +360,6 @@ window.onload = () => {
     // DETECT COLLISION --> AVATAR/AUSTRALIA
     function detectCollisionAUS(avatar, countryAUS){
         var avatar = {x: avatar.x, y: avatar.y, width: 20, height: 20, health: avatar.health} 
-        //var countryAUS = {x: countryAUS.x, y: countryAUS.y, width: 50, height: 40}
 
         if (avatar.x < countryAUS.x + countryAUS.w &&
         avatar.x + avatar.width > countryAUS.x &&
@@ -375,7 +398,11 @@ window.onload = () => {
         detectCollisionChina(avatar, countryChina);
         detectCollisionIndia(avatar, countryIndia);
         detectCollisionAUS(avatar, countryAUS);
-
+        if(!gameOver){
+            detectWin(avatar, northpole);
+        } else {
+            window.cancelAnimationFrame(animateId);
+        }
         if(avatar.health <= 0){
             console.log("dead!", animateId)
             window.cancelAnimationFrame(animateId);
