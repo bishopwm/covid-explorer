@@ -39,7 +39,7 @@ window.onload = () => {
     countryChinaimage.src = 'images/chineseFlag.png'
 
     let countryAUSimage = new Image()
-    countryAUSimage.src = 'images/australianFLag.png'
+    countryAUSimage.src = 'images/australianFlag.png'
 
     let countryARGimage = new Image()
     countryARGimage.src = 'images/argentineFlag.png'
