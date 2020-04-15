@@ -12,6 +12,17 @@ body {
     align-content: stretch;  
 }
 
+@media (max-width: 400px) {
+    body {
+        width: 300px;
+        height: 600px;
+        display: flex;
+        flex-direction: column;
+        background-color: initial;
+        
+    }
+}
+
 #start-button {
     position: absolute;
     width: 200px;
@@ -22,19 +33,30 @@ body {
     color: white;
 }
 
+@media (max-width: 400px) {
+    #start-button {
+        width: 420px;
+        height: 80px;
+        margin-top: 440px;
+        margin-left: 10px;
+    }
+}
+
+@media (min-width: 500px) {
+    #start-button:hover {
+        position: absolute;
+        width: 200px;
+        height: 100px;
+        font-size: 2em;
+        border-radius: 10px;
+        background-color: rgba(17, 77, 77, 0.4);
+        color: white;
+    }
+}
+
 #title {
     letter-spacing: 10px;
     margin-left: 50px;
-}
-
-#start-button:hover {
-    position: absolute;
-    width: 200px;
-    height: 100px;
-    font-size: 2em;
-    border-radius: 10px;
-    background-color: rgba(17, 77, 77, 0.4);
-    color: white;
 }
 
 #instructions {
@@ -46,6 +68,16 @@ body {
     padding: 30px;
     border-radius: 10px;
     color: white;
+}
+
+@media (max-width: 400px) {
+    #instructions {
+        margin-top: 60px;
+        margin-left: 10px;
+        width: 360px;
+        height: 600px;
+        /* margin-top: 640px; */
+    }
 }
 
 #instructions-list {
@@ -67,6 +99,13 @@ canvas {
     box-shadow: 6px 6px 1px rgba(77, 77, 77, 0.4);
     border-radius: 10px;
     visibility: hidden;
+}
+
+@media (max-width: 400px) {
+    #canvas {
+        width: 460px;
+        height: 600px;
+    }
 }
 
 #winner-popup {
@@ -134,16 +173,40 @@ canvas {
     margin-top: 30px;
 }
 
+@media (max-width: 400px) {
+    #arrows {
+        visibility: hidden;
+    }
+}
+
 #arrows-span {
     display: inline-block;
     margin-left: 20px;
     width: 300px;
 }
 
+@media (max-width: 400px) {
+    #arrows-span {
+        visibility: hidden;
+    }
+}
+
+@media (max-width: 400px) {
+    hr {
+        visibility: hidden;
+    }
+}
+
 #demo {
     width: 400px;
     border-radius: 10px;
     margin-left: 40px;
+}
+
+@media (max-width: 400px) {
+    #demo {
+        visibility: hidden;
+    }
 }
 
 #pause-button {
@@ -202,14 +265,35 @@ aside {
     border-radius: 10px;
 }
 
+@media (max-width: 400px) {
+    aside #sidebar {
+        visibility: hidden;
+    }
+}
+
 #title-aside {
     font-size: 2em;
     margin: 0.5em 0.5em;
     color: white;
 }
 
+@media (max-width: 400px) {
+    #title-aside {
+        visibility: hidden;
+    }
+}
+
 #subtitle-aside {
     font-size: 1.5em;
+}
+
+@media (max-width: 400px) {
+    #sidebar {
+        height: 100px;
+        background-color: initial;
+        box-shadow: initial;
+        margin-top: -40px;
+    }
 }
 
 .sidebar-list {
@@ -223,6 +307,14 @@ aside {
     padding: 10px 10px;
 }
 
+@media (max-width: 400px) {
+    #sidebar-list {
+        width: 300px;
+        height: 100px;
+        margin-top: 10px;
+    }
+}
+
 .sidebar-list-item {
     font-weight: bolder;
     color: black;
@@ -230,6 +322,12 @@ aside {
 
 #sidebar2 {
     margin-top: 50px;
+}
+
+@media (max-width: 400px) {
+    #sidebar2 {
+        visibility: hidden;
+    }
 }
 
 #cases-descriptor {
@@ -277,3 +375,4 @@ aside {
 .checkmarks {
     width: 15px;
 }
+
