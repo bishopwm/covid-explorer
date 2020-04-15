@@ -8,6 +8,25 @@ window.onload = () => {
       startGame();
       animate();
     };
+
+    // window.addEventListener('load', () => {
+    //     const calculatePricesBtn = document.getElementById('calculate');
+    //     calculatePricesBtn.addEventListener('click', calculateAll);
+      
+    //     const removeBtns = document.getElementsByClassName("btn-remove");
+    //     // ^Identify remove btns in HTML --> [button.btn.btn-remove, button.btn.btn-remove, etc.]
+        
+    //     for(let i = 0; i < removeBtns.length; i++){
+    //       console.log("Remove button " + removeBtns[i])
+    //       document.getElementsByClassName("btn-remove")[i].addEventListener('click', removeProduct);
+    //     };
+    //     // ^loop through each remove button and add an event listener to call the removeProduct function on click.
+        
+    //     const createNewItemBtn = document.getElementById('create');
+    //     createNewItemBtn.addEventListener('click', createProduct);
+      
+      
+    //   });
   
     // GRAB CANVAS ELEMENT IN HTML/SET DIMENSIONS
     const canvas = document.getElementById('canvas');
@@ -298,8 +317,10 @@ window.onload = () => {
                 ){
                     gameOver = true;
                     window.cancelAnimationFrame(animateId);
-                    alert('Well done! You made it to safety!');
-                    
+                    document.getElementById("winner-popup").style = "visibility: visible;";
+                    $('#play-again-button').click(function(){
+                        window.location.reload();
+                    });    
                 }
         };
     }

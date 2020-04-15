@@ -69,6 +69,53 @@ canvas {
     visibility: hidden;
 }
 
+#winner-popup {
+    color: white;
+    width: 400px;
+    height: 300px;
+    margin-top: 200px;
+    margin-left: -120px;
+    position: absolute;
+    background-color: rgba(77, 77, 77, 0.7);
+    border: solid 0.5px rgba(77, 77, 77, 0.8);
+    border-radius: 15px;;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+
+#winner-popup > h3 {
+    font-size: 2.5em;
+    margin: 5px;
+}
+
+#winner-popup > p {
+    font-size: 1.5em;
+}
+
+#play-again-button {
+    width: 200px;
+    height: 100px;
+    font-size: 2em;
+    border-radius: 10px;
+    background-color: rgba(77, 77, 77, 0.9);
+    color: white;
+}
+
+#play-again-button:hover {
+    width: 200px;
+    height: 100px;
+    font-size: 2em;
+    border-radius: 10px;
+    background-color: rgba(17, 77, 77, 0.4);
+    color: white;
+}
+
+
+
+
 #explorer-stats {
     color: white;
     width: 260px;
