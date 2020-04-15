@@ -18,37 +18,37 @@ window.onload = () => {
 
     // CREATE NEW IMAGES
     let avatarimage = new Image()
-    avatarimage.src = '../images/traveler.png'
+    avatarimage.src = 'images/traveler.png'
 
     let covidimage = new Image()
-    covidimage.src = '../images/covid.png'
+    covidimage.src = 'images/covid.png'
 
     let maskimage = new Image()
-    maskimage.src = '../images/mask.png'
+    maskimage.src = 'images/mask.png'
 
     let countryUSAimage = new Image()
-    countryUSAimage.src = '../images/americanFlag.png'
+    countryUSAimage.src = 'images/americanFlag.png'
 
     let countryUKimage = new Image()
-    countryUKimage.src = '../images/britishFlag.png'
+    countryUKimage.src = 'images/britishFlag.png'
 
     let countryIndiaimage = new Image()
-    countryIndiaimage.src = '../images/indianFlag.png'
+    countryIndiaimage.src = 'images/indianFlag.png'
 
     let countryChinaimage = new Image()
-    countryChinaimage.src = '../images/chineseFlag.png'
+    countryChinaimage.src = 'images/chineseFlag.png'
 
     let countryAUSimage = new Image()
-    countryAUSimage.src = '../images/australianFLag.png'
+    countryAUSimage.src = 'images/australianFLag.png'
 
     let countryARGimage = new Image()
-    countryARGimage.src = '../images/argentineFlag.png'
+    countryARGimage.src = 'images/argentineFlag.png'
     
     let airportimage = new Image()
-    airportimage.src = '../images/airport.png'
+    airportimage.src = 'images/airport.png'
 
     let northpoleimage = new Image()
-    northpoleimage.src = '../images/northpole.png'
+    northpoleimage.src = 'images/northpole.png'
 
     // DISPLAY AVATAR CURRENT POSITION
     function recordPosition(){
@@ -58,37 +58,37 @@ window.onload = () => {
     function enlargeIconUSA(){
         countryUSA.w = 80;
         countryUSA.h = 90;
-        document.getElementById("checkmark-usa").src = "../images/checkmark.png";
+        document.getElementById("checkmark-usa").src = "images/checkmark.png";
         countryUSA.countryVisited = true;
     }
     function enlargeIconUK(){
         countryUK.w = 80;
         countryUK.h = 90;
-        document.getElementById("checkmark-uk").src = "../images/checkmark.png";
+        document.getElementById("checkmark-uk").src = "images/checkmark.png";
         countryUK.countryVisited = true;
     }
     function enlargeIconChina(){
         countryChina.w = 80;
         countryChina.h = 90;
-        document.getElementById("checkmark-china").src = "../images/checkmark.png";
+        document.getElementById("checkmark-china").src = "images/checkmark.png";
         countryChina.countryVisited = true;
     }
     function enlargeIconIndia(){
         countryIndia.w = 80;
         countryIndia.h = 90;
-        document.getElementById("checkmark-india").src = "../images/checkmark.png";
+        document.getElementById("checkmark-india").src = "images/checkmark.png";
         countryIndia.countryVisited = true;
     }
     function enlargeIconAUS(){
         countryAUS.w = 80;
         countryAUS.h = 90;
-        document.getElementById("checkmark-aus").src = "../images/checkmark.png";
+        document.getElementById("checkmark-aus").src = "images/checkmark.png";
         countryAUS.countryVisited = true;
     }
     function enlargeIconARG(){
         countryARG.w = 80;
         countryARG.h = 90;
-        document.getElementById("checkmark-arg").src = "../images/checkmark.png";
+        document.getElementById("checkmark-arg").src = "images/checkmark.png";
         countryARG.countryVisited = true;
     }
 
