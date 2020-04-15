@@ -40,6 +40,9 @@ window.onload = () => {
 
     let countryAUSimage = new Image()
     countryAUSimage.src = 'images/australianFLag.png'
+
+    let countryARGimage = new Image()
+    countryARGimage.src = 'images/argentineFlag.png'
     
     let airportimage = new Image()
     airportimage.src = 'images/airport.png'
@@ -82,6 +85,13 @@ window.onload = () => {
         document.getElementById("checkmark-aus").src = "../images/checkmark.png";
         countryAUS.countryVisited = true;
     }
+    function enlargeIconARG(){
+        countryARG.w = 80;
+        countryARG.h = 90;
+        document.getElementById("checkmark-arg").src = "../images/checkmark.png";
+        countryARG.countryVisited = true;
+    }
+
 
     // PAUSE/PLAY TOGGLe
     // function toggleGameState() {
@@ -156,27 +166,30 @@ window.onload = () => {
     function drawCountryAUS(){
         ctx.drawImage(countryAUS.image, countryAUS.x, countryAUS.y, countryAUS.w, countryAUS.h)  
     }
+    function drawCountryARG(){
+        ctx.drawImage(countryARG.image, countryARG.x, countryARG.y, countryARG.w, countryARG.h)  
+    }
 
     // DECLARE START AND END POINT OBJECTS
     let airport = {
         x: 20,
         y: 700,
-        w: 120,
-        h: 85,
+        w: 140,
+        h: 105,
         image: airportimage
     }
 
     let northpole = {
         x: 860,
         y: 25,
-        w: 80,
-        h: 120,
+        w: 100,
+        h: 140,
         image: northpoleimage
     }
     // DECLARE AVATAR
     let avatar = {
         x: 170,
-        y: 720,
+        y: 730,
         w: 60,
         h: 60,
         image: avatarimage,
@@ -232,6 +245,16 @@ window.onload = () => {
         h: 65,
         image: countryAUSimage,
         casesPerMillion: covidCases[29].total_cases_per_1m_population,
+        countryVisited: false
+    }
+    let countryARG = {
+        name: "Argentina",
+        x: 310,
+        y: 490,
+        w: 60,
+        h: 65,
+        image: countryARGimage,
+        casesPerMillion: covidCases[50].total_cases_per_1m_population,
         countryVisited: false
     }
 
@@ -427,6 +450,28 @@ window.onload = () => {
         };
     }
 
+    // DETECT COLLISION --> AVATAR/ARGENTINA
+    function detectCollisionARG(avatar, countryARG){
+        var avatar = {x: avatar.x, y: avatar.y, width: 20, height: 20, health: avatar.health} 
+
+        if (avatar.x < countryARG.x + countryARG.w &&
+        avatar.x + avatar.width > countryARG.x &&
+        avatar.y < countryARG.y + countryARG.h &&
+        avatar.y + avatar.height > countryARG.y) {
+        if(frames % 1 === 0){ready = true};
+        if(ready){
+            avatar.health -= 25;
+            document.getElementById('explorer-health').innerHTML = avatar.health;
+            enlargeIconARG();
+            document.getElementById('current-country').innerHTML = `Argentina`
+            }; 
+            document.getElementById('cases').innerHTML = covidCases[50].cases;
+            document.getElementById('deaths').innerHTML = covidCases[50].deaths;
+            document.getElementById('health-score').innerHTML = countryARG.casesPerMillion;
+        };
+    }
+
+    // ANIMATE FUNCTION
     function animate(){   
         frames++;  
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -441,6 +486,7 @@ window.onload = () => {
         drawCountryChina();
         drawCountryIndia();
         drawCountryAUS();
+        drawCountryARG();
     
         detectCovidCollision(avatar);
         detectMaskCollision(avatar);
@@ -450,6 +496,7 @@ window.onload = () => {
         detectCollisionChina(avatar, countryChina);
         detectCollisionIndia(avatar, countryIndia);
         detectCollisionAUS(avatar, countryAUS);
+        detectCollisionARG(avatar, countryARG);
         if(!gameOver){
             detectWin(avatar, northpole);
         } else {
