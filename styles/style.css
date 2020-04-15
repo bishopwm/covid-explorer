@@ -12,7 +12,7 @@ body {
     align-content: stretch;  
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
     body {
         width: 300px;
         height: 600px;
@@ -33,7 +33,7 @@ body {
     color: white;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
     #start-button {
         width: 420px;
         height: 80px;
@@ -70,7 +70,7 @@ body {
     color: white;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
     #instructions {
         margin-top: 60px;
         margin-left: 10px;
@@ -101,7 +101,7 @@ canvas {
     visibility: hidden;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
     #canvas {
         width: 460px;
         height: 600px;
@@ -173,7 +173,7 @@ canvas {
     margin-top: 30px;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
     #arrows {
         visibility: hidden;
     }
@@ -185,13 +185,13 @@ canvas {
     width: 300px;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
     #arrows-span {
         visibility: hidden;
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
     hr {
         visibility: hidden;
     }
@@ -203,7 +203,7 @@ canvas {
     margin-left: 40px;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
     #demo {
         visibility: hidden;
     }
@@ -265,7 +265,7 @@ aside {
     border-radius: 10px;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
     aside #sidebar {
         visibility: hidden;
     }
@@ -277,7 +277,7 @@ aside {
     color: white;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
     #title-aside {
         visibility: hidden;
     }
@@ -287,7 +287,7 @@ aside {
     font-size: 1.5em;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
     #sidebar {
         height: 100px;
         background-color: initial;
@@ -307,7 +307,7 @@ aside {
     padding: 10px 10px;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
     #sidebar-list {
         width: 300px;
         height: 100px;
@@ -324,7 +324,7 @@ aside {
     margin-top: 50px;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
     #sidebar2 {
         visibility: hidden;
     }
