@@ -104,7 +104,9 @@ canvas {
 @media (max-width: 500px) {
     #canvas {
         width: 460px;
-        height: 600px;
+        height: 335px;
+        box-shadow: initial;
+        background-size: 460px 335px;
     }
 }
 
