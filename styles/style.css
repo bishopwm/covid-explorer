@@ -39,12 +39,20 @@ body {
 #instructions {
     position: absolute;
     width: 500px;
-    height: 850px;
+    height: 880px;
     background-color: rgba(77, 77, 77, 0.4);
     margin-top: 120px;
     padding: 30px;
     border-radius: 10px;
     color: white;
+}
+
+#instructions-list {
+    list-style-type: none;
+}
+
+.instruction-icon {
+    width: 30px;
 }
 
 #instructions-header {
