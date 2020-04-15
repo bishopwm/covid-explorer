@@ -103,7 +103,7 @@ window.onload = () => {
 
     function drawMasks(){
         masks.forEach((mask) => { 
-            ctx.drawImage(mask.image, mask.x-=2, mask.y-=2, mask.w, mask.h)
+            ctx.drawImage(mask.image, mask.x-=1, mask.y-=1, mask.w, mask.h)
             })       
     }
     
@@ -119,7 +119,7 @@ window.onload = () => {
     if(masks.length <= 150){
         masks.push(mask);
     }
-    }, 1000)
+    }, 1200)
 
 
     let covids = []       
@@ -303,6 +303,26 @@ window.onload = () => {
         )
     }
 
+    // DETECT MASK COLLISION
+    function detectMaskCollision(avatar){
+        masks.forEach(
+            (mask) => {
+                if(
+                    avatar.x < mask.x + mask.w &&
+                    avatar.x + avatar.w > mask.x &&
+                    avatar.y < mask.y + mask.h &&
+                    avatar.y + avatar.h > mask.y    
+                ){
+                    if(frames % 1 === 0){ready = true};
+                    if(ready){
+                    avatar.health += 1;
+                    document.getElementById('explorer-health').innerHTML = avatar.health;
+                    }
+                }
+            }
+        )
+    }   
+
     // DETECT COLLISION --> AVATAR/USA
     function detectCollisionUSA(avatar, countryUSA){
         var avatar = {x: avatar.x, y: avatar.y, width: 20, height: 20, health: avatar.health}; 
@@ -423,6 +443,7 @@ window.onload = () => {
         drawCountryAUS();
     
         detectCovidCollision(avatar);
+        detectMaskCollision(avatar);
         
         detectCollisionUSA(avatar, countryUSA);
         detectCollisionUK(avatar, countryUK);
