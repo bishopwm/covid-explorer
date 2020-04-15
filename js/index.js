@@ -4,6 +4,7 @@ window.onload = () => {
       document.getElementById('sidebar').style = "visibility: visible;";
       document.getElementById('explorer-stats').style = "visibility: visible;";
       document.getElementById('instructions').style = "visibility: hidden;";
+      document.getElementById('main-body').style = "overflow: hidden;"
       startGame();
       animate();
     };
