@@ -59,37 +59,37 @@ window.onload = () => {
     function enlargeIconUSA(){
         countryUSA.w = 80;
         countryUSA.h = 90;
-        document.getElementById("checkmark-usa").src = "../images/checkmark.png";
+        document.getElementById("checkmark-usa").src = 'images/checkmark.png';
         countryUSA.countryVisited = true;
     }
     function enlargeIconUK(){
         countryUK.w = 80;
         countryUK.h = 90;
-        document.getElementById("checkmark-uk").src = "../images/checkmark.png";
+        document.getElementById("checkmark-uk").src = 'images/checkmark.png';
         countryUK.countryVisited = true;
     }
     function enlargeIconChina(){
         countryChina.w = 80;
         countryChina.h = 90;
-        document.getElementById("checkmark-china").src = "../images/checkmark.png";
+        document.getElementById("checkmark-china").src = 'images/checkmark.png';
         countryChina.countryVisited = true;
     }
     function enlargeIconIndia(){
         countryIndia.w = 80;
         countryIndia.h = 90;
-        document.getElementById("checkmark-india").src = "../images/checkmark.png";
+        document.getElementById("checkmark-india").src = 'images/checkmark.png';
         countryIndia.countryVisited = true;
     }
     function enlargeIconAUS(){
         countryAUS.w = 80;
         countryAUS.h = 90;
-        document.getElementById("checkmark-aus").src = "../images/checkmark.png";
+        document.getElementById("checkmark-aus").src = 'images/checkmark.png';
         countryAUS.countryVisited = true;
     }
     function enlargeIconARG(){
         countryARG.w = 80;
         countryARG.h = 90;
-        document.getElementById("checkmark-arg").src = "../images/checkmark.png";
+        document.getElementById("checkmark-arg").src = 'images/checkmark.png';
         countryARG.countryVisited = true;
     }
 
