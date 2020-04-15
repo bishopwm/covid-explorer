@@ -180,7 +180,7 @@ window.onload = () => {
         w: 60,
         h: 60,
         image: avatarimage,
-        health: 200
+        health: 100
     }
 
     // DECLARE COUNTRIES
@@ -274,7 +274,7 @@ window.onload = () => {
                 ){
                     gameOver = true;
                     window.cancelAnimationFrame(animateId);
-                    alert('Well done! You win!');
+                    alert('Well done! You made it to safety!');
                     
                 }
         };
