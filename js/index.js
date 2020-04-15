@@ -217,6 +217,7 @@ window.onload = () => {
     }
 
     // DECLARE COUNTRIES
+
     let countryUSA = {
         name: "United States",
         x: 170,
@@ -224,7 +225,7 @@ window.onload = () => {
         w: 60,
         h: 65,
         image: countryUSAimage,
-        casesPerMillion: covidCases[1].total_cases_per_1m_population,
+        //casesPerMillion: covidCases[1].total_cases_per_1m_population,
         countryVisited: false
     }
     let countryUK = {
@@ -234,7 +235,7 @@ window.onload = () => {
         w: 60,
         h: 65,
         image: countryUKimage,
-        casesPerMillion: covidCases[6].total_cases_per_1m_population,
+        //casesPerMillion: covidCases[6].total_cases_per_1m_population,
         countryVisited: false
     }
     let countryChina = {
@@ -244,7 +245,7 @@ window.onload = () => {
         w: 60,
         h: 65,
         image: countryChinaimage,
-        casesPerMillion: covidCases[212].total_cases_per_1m_population,
+        //casesPerMillion: covidCases[212].total_cases_per_1m_population,
         countryVisited: false
     }
     let countryIndia = {
@@ -254,7 +255,7 @@ window.onload = () => {
         w: 60,
         h: 65,
         image: countryIndiaimage,
-        casesPerMillion: covidCases[21].total_cases_per_1m_population,
+        //casesPerMillion: covidCases[21].total_cases_per_1m_population,
         countryVisited: false
     }
     let countryAUS = {
@@ -264,7 +265,7 @@ window.onload = () => {
         w: 60,
         h: 65,
         image: countryAUSimage,
-        casesPerMillion: covidCases[29].total_cases_per_1m_population,
+        //casesPerMillion: covidCases[29].total_cases_per_1m_population,
         countryVisited: false
     }
     let countryARG = {
@@ -274,7 +275,7 @@ window.onload = () => {
         w: 60,
         h: 65,
         image: countryARGimage,
-        casesPerMillion: covidCases[50].total_cases_per_1m_population,
+        //casesPerMillion: covidCases[50].total_cases_per_1m_population,
         countryVisited: false
     }
 
@@ -383,9 +384,9 @@ window.onload = () => {
             enlargeIconUSA();
             document.getElementById('current-country').innerHTML = `United States`
             }; 
-            document.getElementById('cases').innerHTML = covidCases[1].cases;
-            document.getElementById('deaths').innerHTML = covidCases[1].deaths;
-            document.getElementById('health-score').innerHTML = countryUSA.casesPerMillion;
+            document.getElementById('cases').innerHTML = jsondata.countries_stat[1].cases;
+            document.getElementById('deaths').innerHTML = jsondata.countries_stat[1].deaths;
+            document.getElementById('health-score').innerHTML = jsondata.countries_stat[1].total_cases_per_1m_population;
         };
         let usaCheck = document.getElementById('checkmark-usa').src;
         usaCheck = "../images/checkmark.png";
@@ -406,9 +407,9 @@ window.onload = () => {
             enlargeIconUK();
             document.getElementById('current-country').innerHTML = `United Kingdom`
             }; 
-            document.getElementById('cases').innerHTML = covidCases[6].cases;
-            document.getElementById('deaths').innerHTML = covidCases[6].deaths;
-            document.getElementById('health-score').innerHTML = countryUK.casesPerMillion;
+            document.getElementById('cases').innerHTML = jsondata.countries_stat[6].cases;
+            document.getElementById('deaths').innerHTML = jsondata.countries_stat[6].deaths;
+            document.getElementById('health-score').innerHTML = jsondata.countries_stat[6].total_cases_per_1m_population;
         };
     } 
     // DETECT COLLISION --> AVATAR/CHINA
@@ -426,9 +427,9 @@ window.onload = () => {
             enlargeIconChina();
             document.getElementById('current-country').innerHTML = `China`
             }; 
-            document.getElementById('cases').innerHTML = covidCases[212].cases;
-            document.getElementById('deaths').innerHTML = covidCases[212].deaths;
-            document.getElementById('health-score').innerHTML = countryChina.casesPerMillion;
+            document.getElementById('cases').innerHTML = jsondata.countries_stat[212].cases;
+            document.getElementById('deaths').innerHTML = jsondata.countries_stat[212].deaths;
+            document.getElementById('health-score').innerHTML = jsondata.countries_stat[212].total_cases_per_1m_population;
         };
     } 
     // DETECT COLLISION --> AVATAR/INDIA
@@ -446,9 +447,9 @@ window.onload = () => {
             enlargeIconIndia();
             document.getElementById('current-country').innerHTML = `India`
             };
-            document.getElementById('cases').innerHTML = covidCases[21].cases;
-            document.getElementById('deaths').innerHTML = covidCases[21].deaths;
-            document.getElementById('health-score').innerHTML = countryIndia.casesPerMillion;
+            document.getElementById('cases').innerHTML = jsondata.countries_stat[21].cases;
+            document.getElementById('deaths').innerHTML = jsondata.countries_stat[21].deaths;
+            document.getElementById('health-score').innerHTML = jsondata.countries_stat[21].total_cases_per_1m_population;
         };
     }
     // DETECT COLLISION --> AVATAR/AUSTRALIA
@@ -466,9 +467,9 @@ window.onload = () => {
             enlargeIconAUS();
             document.getElementById('current-country').innerHTML = `Australia`
             }; 
-            document.getElementById('cases').innerHTML = covidCases[29].cases;
-            document.getElementById('deaths').innerHTML = covidCases[29].deaths;
-            document.getElementById('health-score').innerHTML = countryAUS.casesPerMillion;
+            document.getElementById('cases').innerHTML = jsondata.countries_stat[29].cases;
+            document.getElementById('deaths').innerHTML = jsondata.countries_stat[29].deaths;
+            document.getElementById('health-score').innerHTML = jsondata.countries_stat[29].total_cases_per_1m_population;
         };
     }
 
@@ -487,9 +488,9 @@ window.onload = () => {
             enlargeIconARG();
             document.getElementById('current-country').innerHTML = `Argentina`
             }; 
-            document.getElementById('cases').innerHTML = covidCases[50].cases;
-            document.getElementById('deaths').innerHTML = covidCases[50].deaths;
-            document.getElementById('health-score').innerHTML = countryARG.casesPerMillion;
+            document.getElementById('cases').innerHTML = jsondata.countries_stat[50].cases;
+            document.getElementById('deaths').innerHTML = jsondata.countries_stat[50].deaths;
+            document.getElementById('health-score').innerHTML = jsondata.countries_stat[50].total_cases_per_1m_population;
         };
     }
 
