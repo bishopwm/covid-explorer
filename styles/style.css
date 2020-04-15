@@ -24,6 +24,7 @@ body {
 
 #title {
     letter-spacing: 10px;
+    margin-left: 50px;
 }
 
 #start-button:hover {
