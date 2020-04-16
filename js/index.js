@@ -1,4 +1,6 @@
 window.onload = () => {
+    // HIDE MOBILE CONTROLS
+    document.getElementsByClassName('mobile-controls').style = "visibility: hidden;";
     if(screen.width >= 500){
         document.getElementById('start-button').onclick = () => {
         document.getElementById('canvas').style = "visibility: visible;";
@@ -17,6 +19,11 @@ window.onload = () => {
             document.getElementById('instructions').style = "visibility: hidden;";
             document.getElementById('main-body').style = "overflow: hidden;";
             document.getElementById('start-button-mobile').style = "visibility: hidden;";
+            // SHOW MOBILE CONTROLS
+            document.getElementById('mobile-up').style = "visibility: visible";
+            document.getElementById('mobile-right').style = "visibility: visible";
+            document.getElementById('mobile-left').style = "visibility: visible";
+            document.getElementById('mobile-down').style = "visibility: visible";
             startGame();
             animate();
         };
@@ -105,12 +112,6 @@ window.onload = () => {
         document.getElementById("checkmark-arg").src = 'images/checkmark.png';
         countryARG.countryVisited = true;
     }
-
-
-    // PAUSE/PLAY TOGGLe
-    // function toggleGameState() {
-    //     document.getElementById("pause-button").addEventListener
-    // }
 
     // DRAW START AND END POINTS, DETECT WIN
     function drawStartEnd(){
@@ -291,6 +292,20 @@ window.onload = () => {
             avatar.y+=10; 
         }
     }
+
+    // MOBILE: CONTROL BUTTONS    
+    $('#mobile-up').click(function(){
+        avatar.y-=50;
+    });
+    $('#mobile-right').click(function(){
+        avatar.x+=50;
+    });
+    $('#mobile-left').click(function(){
+        avatar.x-=50;
+    }); 
+    $('#mobile-down').click(function(){
+        avatar.y+=50;
+    });
     
     // DETECT WIN
     function detectWin(avatar, northpole){
@@ -386,6 +401,7 @@ window.onload = () => {
         usaCheck = "../images/checkmark.png";
 
     }   
+
     // DETECT COLLISION --> AVATAR/UK
     function detectCollisionUK(avatar, countryUK){
         var avatar = {x: avatar.x, y: avatar.y, width: 20, height: 20, health: avatar.health} 
@@ -504,6 +520,13 @@ window.onload = () => {
         drawCountryIndia();
         drawCountryAUS();
         drawCountryARG();
+
+        // NAVIGATION IN MOBILE:
+        if(screen.width <= 500){
+            $('#canvas').click(function(){
+               console.log("hello!");
+                })   
+        }
     
         detectCovidCollision(avatar);
         detectMaskCollision(avatar);
