@@ -388,7 +388,6 @@ window.onload = () => {
         avatar.y + avatar.height > countryUSA.y) {
         if(frames % 1 === 0){ready = true};
         if(ready){
-            avatar.health -= 25;
             document.getElementById('explorer-health').innerHTML = avatar.health;
             enlargeIconUSA();
             document.getElementById('current-country').innerHTML = `United States`
@@ -412,7 +411,6 @@ window.onload = () => {
         avatar.y + avatar.height > countryUK.y) {
         if(frames % 1 === 0){ready = true};
         if(ready){
-            avatar.health -= 25;
             document.getElementById('explorer-health').innerHTML = avatar.health;
             enlargeIconUK();
             document.getElementById('current-country').innerHTML = `United Kingdom`
@@ -432,7 +430,6 @@ window.onload = () => {
         avatar.y + avatar.height > countryChina.y) {
         if(frames % 1 === 0){ready = true};
         if(ready){
-            avatar.health -= 25;
             document.getElementById('explorer-health').innerHTML = avatar.health;
             enlargeIconChina();
             document.getElementById('current-country').innerHTML = `China`
@@ -452,7 +449,6 @@ window.onload = () => {
         avatar.y + avatar.height > countryIndia.y) {
         if(frames % 1 === 0){ready = true};
         if(ready){
-            avatar.health -= 25;
             document.getElementById('explorer-health').innerHTML = avatar.health;
             enlargeIconIndia();
             document.getElementById('current-country').innerHTML = `India`
@@ -472,7 +468,6 @@ window.onload = () => {
         avatar.y + avatar.height > countryAUS.y) {
         if(frames % 1 === 0){ready = true};
         if(ready){
-            avatar.health -= 25;
             document.getElementById('explorer-health').innerHTML = avatar.health;
             enlargeIconAUS();
             document.getElementById('current-country').innerHTML = `Australia`
@@ -493,7 +488,6 @@ window.onload = () => {
         avatar.y + avatar.height > countryARG.y) {
         if(frames % 1 === 0){ready = true};
         if(ready){
-            avatar.health -= 25;
             document.getElementById('explorer-health').innerHTML = avatar.health;
             enlargeIconARG();
             document.getElementById('current-country').innerHTML = `Argentina`
