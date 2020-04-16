@@ -1,32 +1,26 @@
 window.onload = () => {
-    document.getElementById('start-button').onclick = () => {
-      document.getElementById('canvas').style = "visibility: visible;";
-      document.getElementById('sidebar').style = "visibility: visible;";
-      document.getElementById('explorer-stats').style = "visibility: visible;";
-      document.getElementById('instructions').style = "visibility: hidden;";
-      document.getElementById('main-body').style = "overflow: hidden;"
-      startGame();
-      animate();
-    };
-
-    // window.addEventListener('load', () => {
-    //     const calculatePricesBtn = document.getElementById('calculate');
-    //     calculatePricesBtn.addEventListener('click', calculateAll);
-      
-    //     const removeBtns = document.getElementsByClassName("btn-remove");
-    //     // ^Identify remove btns in HTML --> [button.btn.btn-remove, button.btn.btn-remove, etc.]
-        
-    //     for(let i = 0; i < removeBtns.length; i++){
-    //       console.log("Remove button " + removeBtns[i])
-    //       document.getElementsByClassName("btn-remove")[i].addEventListener('click', removeProduct);
-    //     };
-    //     // ^loop through each remove button and add an event listener to call the removeProduct function on click.
-        
-    //     const createNewItemBtn = document.getElementById('create');
-    //     createNewItemBtn.addEventListener('click', createProduct);
-      
-      
-    //   });
+    if(screen.width >= 500){
+        document.getElementById('start-button').onclick = () => {
+        document.getElementById('canvas').style = "visibility: visible;";
+        document.getElementById('sidebar').style = "visibility: visible;";
+        document.getElementById('explorer-stats').style = "visibility: visible;";
+        document.getElementById('instructions').style = "visibility: hidden;";
+        document.getElementById('main-body').style = "overflow: hidden;"
+        startGame();
+        animate();
+        };
+    } else {
+        document.getElementById('start-button-mobile').onclick = () => {
+            document.getElementById('canvas').style = "visibility: visible;";
+            document.getElementById('sidebar').style = "visibility: visible;";
+            document.getElementById('explorer-stats').style = "visibility: visible;";
+            document.getElementById('instructions').style = "visibility: hidden;";
+            document.getElementById('main-body').style = "overflow: hidden;";
+            document.getElementById('start-button-mobile').style = "visibility: hidden;";
+            startGame();
+            animate();
+        };
+    }
   
     // GRAB CANVAS ELEMENT IN HTML/SET DIMENSIONS
     const canvas = document.getElementById('canvas');

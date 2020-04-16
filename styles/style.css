@@ -35,10 +35,7 @@ body {
 
 @media (max-width: 500px) {
     #start-button {
-        width: 420px;
-        height: 80px;
-        margin-top: 440px;
-        margin-left: 10px;
+        visibility: hidden;
     }
 }
 
@@ -51,6 +48,32 @@ body {
         border-radius: 10px;
         background-color: rgba(17, 77, 77, 0.4);
         color: white;
+    }
+}
+
+#start-button-mobile {
+    width: 200px;
+    height: 100px;
+    font-size: 2em;
+    border-radius: 10px;
+    background-color: rgba(77, 77, 77, 0.4);
+    color: white;
+    margin-top: 460px;
+    margin-left: 10px;
+    width: 420px;
+    position: absolute;
+    visibility: visible;
+}
+
+@media (min-width: 500px) {
+    #start-button-mobile {
+        visibility: hidden;
+    }
+}
+
+@media (max-width: 500px) {
+    #start-button {
+        visibility: hidden;
     }
 }
 
