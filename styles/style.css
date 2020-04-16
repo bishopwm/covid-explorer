@@ -152,7 +152,7 @@ canvas {
 
 @media (max-width: 500px) {
     #winner-popup {
-        margin-left: 0px;
+        margin-left: 20px;
     }
 }
 
@@ -302,6 +302,12 @@ aside {
     }
 }
 
+@media (min-width: 500px) {
+    #sidebar1  {
+        margin-top: -80px;
+    }
+}
+
 #title-aside {
     font-size: 2em;
     margin: 0.5em 0.5em;
@@ -311,6 +317,7 @@ aside {
 @media (max-width: 500px) {
     #title-aside {
         visibility: hidden;
+        margin-top: -60px;
     }
 }
 
@@ -343,6 +350,12 @@ aside {
         width: 300px;
         height: 100px;
         margin-top: 10px;
+    }
+}
+
+@media (max-width: 500px) {
+    #sidebar {
+        margin-left: 120px;
     }
 }
 
@@ -415,3 +428,23 @@ aside {
     touch-action: none;
 }
 
+.mobile-arrow {
+    width: 15px;
+    padding: 5px;
+}
+
+#mobile-up {
+    margin-left: 56px;
+}
+
+#mobile-arrows-container > button {
+    border-radius: 10px;
+}
+
+#mobile-arrows-container {
+    margin: 4px;
+}
+
+#mobile-up {
+    border-radius: 10px;
+}

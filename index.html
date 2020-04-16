@@ -52,11 +52,13 @@
     </div>
     <aside id="sidebar">
       <h1 id="title-aside">COVID EXPLORER</h1>
-      <button class="mobile-controls" id="mobile-up">Up</button>
-      <button class="mobile-controls" id="mobile-right">Right</button>
-      <button class="mobile-controls" id="mobile-left">Left</button>
-      <button class="mobile-controls" id="mobile-down">Down</button>
-      <ul class="sidebar-list">
+      <button class="mobile-controls" id="mobile-up"><img class="mobile-arrow" src="images/arrow_up.png"></button>
+      <p id="mobile-arrows-container">
+        <button class="mobile-controls" id="mobile-left"><img class="mobile-arrow" src="images/arrow_left.png"></button>
+        <button class="mobile-controls" id="mobile-down"><img class="mobile-arrow" src="images/arrow_down.png"></button>
+        <button class="mobile-controls" id="mobile-right"><img class="mobile-arrow" src="images/arrow_right.png"></button>
+      </p>
+      <ul class="sidebar-list" id="sidebar1">
         <li class ="sidebar-list-item" id="current-country"></li>
         <li class ="sidebar-list-item" id="cases">--- ---</li>
         <li class ="sidebar-list-item" id="cases-descriptor"><strong>Reported Cases</strong></li>
