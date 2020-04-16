@@ -141,7 +141,7 @@ canvas {
     margin-left: -120px;
     position: absolute;
     background-color: rgba(77, 77, 77, 0.7);
-    border: solid 0.5px rgba(77, 77, 77, 0.8);
+    border: solid 1px white;
     border-radius: 15px;;
     visibility: hidden;
     display: flex;
