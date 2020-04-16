@@ -448,3 +448,41 @@ aside {
 #mobile-up {
     border-radius: 10px;
 }
+
+#mask-fact {
+    position: absolute;
+    margin-top: 300px;
+    color: black;
+    background-color: white;
+    border-radius: 10px;
+    visibility: hidden;
+}
+@media (max-width: 500px) {
+    #mask-fact {
+        margin-top: 10px;
+        visibility: hidden;
+    }
+}
+
+
+#mask-image {
+    width: 400px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+@media (max-width: 500px) {
+    #mask-image {
+        width: 250px;
+    }
+}
+
+@media (max-width: 500px) {
+    #country-welcome {
+        font-size: 0.85em;
+    }
+}
+
+#country-welcome {
+    margin-left: 10px;
+}

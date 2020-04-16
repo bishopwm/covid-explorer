@@ -81,36 +81,85 @@ window.onload = () => {
         countryUSA.h = 90;
         document.getElementById("checkmark-usa").src = 'images/checkmark.png';
         countryUSA.countryVisited = true;
+        document.getElementById("mask-fact").style = "visibility: visible;";
+        document.getElementById("country-welcome").innerHTML = `Welcome to the ${countryUSA.name}! Stay Safe.`
+            $('#mask-fact')
+                .delay(500)
+                .queue(function (next) { 
+                    $(this).css('visibility', 'hidden'); 
+                    next(); 
+                });
     }
     function enlargeIconUK(){
         countryUK.w = 80;
         countryUK.h = 90;
         document.getElementById("checkmark-uk").src = 'images/checkmark.png';
         countryUK.countryVisited = true;
+        
+        document.getElementById("mask-fact").style = "visibility: visible;";
+        document.getElementById("country-welcome").innerHTML = `Welcome to the ${countryUK.name}! Keep well.`
+            $('#mask-fact')
+                .delay(500)
+                .queue(function (next) { 
+                    $(this).css('visibility', 'hidden'); 
+                    next(); 
+                });
     }
     function enlargeIconChina(){
         countryChina.w = 80;
         countryChina.h = 90;
         document.getElementById("checkmark-china").src = 'images/checkmark.png';
         countryChina.countryVisited = true;
+        document.getElementById("mask-fact").style = "visibility: visible;";
+        document.getElementById("country-welcome").innerHTML = `欢迎来到中国！ 注意安全`
+        $('#mask-fact')
+            .delay(500)
+            .queue(function (next) { 
+                $(this).css('visibility', 'hidden'); 
+                next(); 
+            });
     }
     function enlargeIconIndia(){
         countryIndia.w = 80;
         countryIndia.h = 90;
         document.getElementById("checkmark-india").src = 'images/checkmark.png';
         countryIndia.countryVisited = true;
+        document.getElementById("mask-fact").style = "visibility: visible;";
+        document.getElementById("country-welcome").innerHTML = `भारत में आपका स्वागत है! सुरक्षित रहें!`
+        $('#mask-fact')
+            .delay(500)
+            .queue(function (next) { 
+                $(this).css('visibility', 'hidden'); 
+                next(); 
+            });
     }
     function enlargeIconAUS(){
         countryAUS.w = 80;
         countryAUS.h = 90;
         document.getElementById("checkmark-aus").src = 'images/checkmark.png';
         countryAUS.countryVisited = true;
+        document.getElementById("mask-fact").style = "visibility: visible;";
+        document.getElementById("country-welcome").innerHTML = `Welcome to ${countryAUS.name}! Keep it up.`
+        $('#mask-fact')
+            .delay(500)
+            .queue(function (next) { 
+                $(this).css('visibility', 'hidden'); 
+                next(); 
+            });
     }
     function enlargeIconARG(){
         countryARG.w = 80;
         countryARG.h = 90;
         document.getElementById("checkmark-arg").src = 'images/checkmark.png';
         countryARG.countryVisited = true;
+        document.getElementById("mask-fact").style = "visibility: visible;";
+        document.getElementById("country-welcome").innerHTML = `¡Bienvenido a Argentina! ¡Mantenerse a salvo!`
+        $('#mask-fact')
+            .delay(500)
+            .queue(function (next) { 
+                $(this).css('visibility', 'hidden'); 
+                next(); 
+            });
     }
 
     // DRAW START AND END POINTS, DETECT WIN
@@ -208,7 +257,7 @@ window.onload = () => {
         w: 60,
         h: 60,
         image: avatarimage,
-        health: 50
+        health: 30000
     }
 
     // DECLARE COUNTRIES
@@ -388,6 +437,7 @@ window.onload = () => {
         avatar.y + avatar.height > countryUSA.y) {
         if(frames % 1 === 0){ready = true};
         if(ready){
+            refreshImage();
             document.getElementById('explorer-health').innerHTML = avatar.health;
             enlargeIconUSA();
             document.getElementById('current-country').innerHTML = `United States`
@@ -398,7 +448,6 @@ window.onload = () => {
         };
         let usaCheck = document.getElementById('checkmark-usa').src;
         usaCheck = "../images/checkmark.png";
-
     }   
 
     // DETECT COLLISION --> AVATAR/UK
@@ -411,6 +460,7 @@ window.onload = () => {
         avatar.y + avatar.height > countryUK.y) {
         if(frames % 1 === 0){ready = true};
         if(ready){
+            refreshImage();
             document.getElementById('explorer-health').innerHTML = avatar.health;
             enlargeIconUK();
             document.getElementById('current-country').innerHTML = `United Kingdom`
@@ -430,6 +480,7 @@ window.onload = () => {
         avatar.y + avatar.height > countryChina.y) {
         if(frames % 1 === 0){ready = true};
         if(ready){
+            refreshImage();
             document.getElementById('explorer-health').innerHTML = avatar.health;
             enlargeIconChina();
             document.getElementById('current-country').innerHTML = `China`
@@ -449,6 +500,7 @@ window.onload = () => {
         avatar.y + avatar.height > countryIndia.y) {
         if(frames % 1 === 0){ready = true};
         if(ready){
+            refreshImage();
             document.getElementById('explorer-health').innerHTML = avatar.health;
             enlargeIconIndia();
             document.getElementById('current-country').innerHTML = `India`
@@ -468,6 +520,7 @@ window.onload = () => {
         avatar.y + avatar.height > countryAUS.y) {
         if(frames % 1 === 0){ready = true};
         if(ready){
+            refreshImage();
             document.getElementById('explorer-health').innerHTML = avatar.health;
             enlargeIconAUS();
             document.getElementById('current-country').innerHTML = `Australia`
@@ -488,6 +541,7 @@ window.onload = () => {
         avatar.y + avatar.height > countryARG.y) {
         if(frames % 1 === 0){ready = true};
         if(ready){
+            refreshImage();
             document.getElementById('explorer-health').innerHTML = avatar.health;
             enlargeIconARG();
             document.getElementById('current-country').innerHTML = `Argentina`
