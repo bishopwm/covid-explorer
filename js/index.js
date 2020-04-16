@@ -17,7 +17,7 @@ window.onload = () => {
             document.getElementById('sidebar').style = "visibility: visible;";
             document.getElementById('explorer-stats').style = "visibility: visible;";
             document.getElementById('instructions').style = "visibility: hidden;";
-            document.getElementById('main-body').style = "overflow: hidden;";
+            document.getElementById('main-body').style = "overflow: auto;";
             document.getElementById('start-button-mobile').style = "visibility: hidden;";
             // SHOW MOBILE CONTROLS
             document.getElementById('mobile-up').style = "visibility: visible";
