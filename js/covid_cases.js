@@ -45,23 +45,3 @@ function arrayBufferToBase64(buffer) {
 
   return window.btoa(binary);
 };
-
-function refreshImage(){
-    fetch(request, requestOptions).then((response) => {
-    response.arrayBuffer().then((buffer) => {
-        var base64Flag = 'data:image/jpeg;base64,';
-        var imageStr = arrayBufferToBase64(buffer);
-
-        document.querySelector('#mask-image').src = base64Flag + imageStr;
-    });
-    });
-
-    function arrayBufferToBase64(buffer) {
-    var binary = '';
-    var bytes = [].slice.call(new Uint8Array(buffer));
-
-    bytes.forEach((b) => binary += String.fromCharCode(b));
-
-    return window.btoa(binary);
-    };
-};

@@ -71,6 +71,9 @@ window.onload = () => {
     let northpoleimage = new Image()
     northpoleimage.src = 'images/northpole.png'
 
+    let whoimage = new Image()
+    whoimage.src = 'images/who.png'
+
     // DISPLAY AVATAR CURRENT POSITION
     function recordPosition(){
         document.getElementById('current-position').innerHTML = avatar.x +",  "+ avatar.y
@@ -81,91 +84,51 @@ window.onload = () => {
         countryUSA.h = 90;
         document.getElementById("checkmark-usa").src = 'images/checkmark.png';
         countryUSA.countryVisited = true;
-        document.getElementById("mask-fact").style = "visibility: visible;";
-        document.getElementById("country-welcome").innerHTML = `Welcome to the ${countryUSA.name}! Stay Safe.`
-            $('#mask-fact')
-                .delay(500)
-                .queue(function (next) { 
-                    $(this).css('visibility', 'hidden'); 
-                    next(); 
-                });
+        // document.getElementById("mask-fact").style = "visibility: visible;";
+        // document.getElementById("country-welcome").innerHTML = `Welcome to the ${countryUSA.name}! Stay Safe.`
+        //     $('#mask-fact')
+        //         .delay(500)
+        //         .queue(function (next) { 
+        //             $(this).css('visibility', 'hidden'); 
+        //             next(); 
+        //         });
     }
     function enlargeIconUK(){
         countryUK.w = 80;
         countryUK.h = 90;
         document.getElementById("checkmark-uk").src = 'images/checkmark.png';
         countryUK.countryVisited = true;
-        
-        document.getElementById("mask-fact").style = "visibility: visible;";
-        document.getElementById("country-welcome").innerHTML = `Welcome to the ${countryUK.name}! Keep well.`
-            $('#mask-fact')
-                .delay(500)
-                .queue(function (next) { 
-                    $(this).css('visibility', 'hidden'); 
-                    next(); 
-                });
     }
     function enlargeIconChina(){
         countryChina.w = 80;
         countryChina.h = 90;
         document.getElementById("checkmark-china").src = 'images/checkmark.png';
         countryChina.countryVisited = true;
-        document.getElementById("mask-fact").style = "visibility: visible;";
-        document.getElementById("country-welcome").innerHTML = `欢迎来到中国！ 注意安全`
-        $('#mask-fact')
-            .delay(500)
-            .queue(function (next) { 
-                $(this).css('visibility', 'hidden'); 
-                next(); 
-            });
     }
     function enlargeIconIndia(){
         countryIndia.w = 80;
         countryIndia.h = 90;
         document.getElementById("checkmark-india").src = 'images/checkmark.png';
         countryIndia.countryVisited = true;
-        document.getElementById("mask-fact").style = "visibility: visible;";
-        document.getElementById("country-welcome").innerHTML = `भारत में आपका स्वागत है! सुरक्षित रहें!`
-        $('#mask-fact')
-            .delay(500)
-            .queue(function (next) { 
-                $(this).css('visibility', 'hidden'); 
-                next(); 
-            });
     }
     function enlargeIconAUS(){
         countryAUS.w = 80;
         countryAUS.h = 90;
         document.getElementById("checkmark-aus").src = 'images/checkmark.png';
         countryAUS.countryVisited = true;
-        document.getElementById("mask-fact").style = "visibility: visible;";
-        document.getElementById("country-welcome").innerHTML = `Welcome to ${countryAUS.name}! Keep it up.`
-        $('#mask-fact')
-            .delay(500)
-            .queue(function (next) { 
-                $(this).css('visibility', 'hidden'); 
-                next(); 
-            });
     }
     function enlargeIconARG(){
         countryARG.w = 80;
         countryARG.h = 90;
         document.getElementById("checkmark-arg").src = 'images/checkmark.png';
         countryARG.countryVisited = true;
-        document.getElementById("mask-fact").style = "visibility: visible;";
-        document.getElementById("country-welcome").innerHTML = `¡Bienvenido a Argentina! ¡Mantenerse a salvo!`
-        $('#mask-fact')
-            .delay(500)
-            .queue(function (next) { 
-                $(this).css('visibility', 'hidden'); 
-                next(); 
-            });
     }
 
     // DRAW START AND END POINTS, DETECT WIN
     function drawStartEnd(){
         ctx.drawImage(airport.image, airport.x, airport.y, airport.w, airport.h)
         ctx.drawImage(northpole.image, northpole.x, northpole.y, northpole.w, northpole.h)
+        ctx.drawImage(who.image, who.x, who.y, who.w, who.h)
     }
 
     // DRAW COVID ICONS
@@ -250,6 +213,14 @@ window.onload = () => {
         h: 140,
         image: northpoleimage
     }
+    let who = {
+        x: 360,
+        y: 300,
+        w: 60,
+        h: 65,
+        image: whoimage
+    }
+
     // DECLARE AVATAR
     let avatar = {
         x: 170,
@@ -275,7 +246,7 @@ window.onload = () => {
     let countryUK = {
         name: "United Kingdom",
         x: 490,
-        y: 220,
+        y: 200,
         w: 60,
         h: 65,
         image: countryUKimage,
@@ -427,17 +398,39 @@ window.onload = () => {
         )
     }   
 
-    // DETECT COLLISION --> AVATAR/USA
-    function detectCollisionUSA(avatar, countryUSA){
-        var avatar = {x: avatar.x, y: avatar.y, width: 20, height: 20, health: avatar.health}; 
+    // DETECT WHO COLLISION
+    function detectCollisionWHO(avatar, who){
+        var avatar = {x: avatar.x, y: avatar.y, w: avatar.w, h: avatar.h, health: avatar.health}; 
        
-        if(avatar.x < countryUSA.x + countryUSA.w &&
-        avatar.x + avatar.width > countryUSA.x &&
-        avatar.y < countryUSA.y + countryUSA.h &&
-        avatar.y + avatar.height > countryUSA.y) {
+        if(avatar.x < who.x + who.w &&
+        avatar.x + avatar.w > who.x &&
+        avatar.y < who.y + who.h &&
+        avatar.y + avatar.h > who.y) {
         if(frames % 1 === 0){ready = true};
         if(ready){
-            refreshImage();
+        document.getElementById("mask-fact").style = "visibility: visible;";
+        document.getElementById("country-welcome").innerHTML = `Friendly reminder from the World Health Org!`
+            $('#mask-fact')
+                .delay(500)
+                .queue(function (next) { 
+                    $(this).css('visibility', 'hidden'); 
+                    next(); 
+                });
+            }
+        };
+    } 
+
+
+    // DETECT COLLISION --> AVATAR/USA
+    function detectCollisionUSA(avatar, countryUSA){
+        var avatar = {x: avatar.x, y: avatar.y, w: avatar.w, h: avatar.h, health: avatar.health}; 
+       
+        if(avatar.x < countryUSA.x + countryUSA.w &&
+        avatar.x + avatar.w > countryUSA.x &&
+        avatar.y < countryUSA.y + countryUSA.h &&
+        avatar.y + avatar.h > countryUSA.y) {
+        if(frames % 1 === 0){ready = true};
+        if(ready){
             document.getElementById('explorer-health').innerHTML = avatar.health;
             enlargeIconUSA();
             document.getElementById('current-country').innerHTML = `United States`
@@ -452,15 +445,14 @@ window.onload = () => {
 
     // DETECT COLLISION --> AVATAR/UK
     function detectCollisionUK(avatar, countryUK){
-        var avatar = {x: avatar.x, y: avatar.y, width: 20, height: 20, health: avatar.health} 
+        var avatar = {x: avatar.x, y: avatar.y, w: avatar.w, h: avatar.h, health: avatar.health} 
 
         if (avatar.x < countryUK.x + countryUK.w &&
-        avatar.x + avatar.width > countryUK.x &&
+        avatar.x + avatar.w > countryUK.x &&
         avatar.y < countryUK.y + countryUK.h &&
-        avatar.y + avatar.height > countryUK.y) {
+        avatar.y + avatar.h > countryUK.y) {
         if(frames % 1 === 0){ready = true};
         if(ready){
-            refreshImage();
             document.getElementById('explorer-health').innerHTML = avatar.health;
             enlargeIconUK();
             document.getElementById('current-country').innerHTML = `United Kingdom`
@@ -472,15 +464,14 @@ window.onload = () => {
     } 
     // DETECT COLLISION --> AVATAR/CHINA
     function detectCollisionChina(avatar, countryChina){
-        var avatar = {x: avatar.x, y: avatar.y, width: 20, height: 20, health: avatar.health} 
+        var avatar = {x: avatar.x, y: avatar.y, w: avatar.w, h: avatar.h, health: avatar.health} 
 
         if (avatar.x < countryChina.x + countryChina.w &&
-        avatar.x + avatar.width > countryChina.x &&
+        avatar.x + avatar.w > countryChina.x &&
         avatar.y < countryChina.y + countryChina.h &&
-        avatar.y + avatar.height > countryChina.y) {
+        avatar.y + avatar.h > countryChina.y) {
         if(frames % 1 === 0){ready = true};
         if(ready){
-            refreshImage();
             document.getElementById('explorer-health').innerHTML = avatar.health;
             enlargeIconChina();
             document.getElementById('current-country').innerHTML = `China`
@@ -492,15 +483,14 @@ window.onload = () => {
     } 
     // DETECT COLLISION --> AVATAR/INDIA
     function detectCollisionIndia(avatar, countryIndia){
-        var avatar = {x: avatar.x, y: avatar.y, width: 20, height: 20, health: avatar.health} 
+        var avatar = {x: avatar.x, y: avatar.y, w: avatar.w, h: avatar.h, health: avatar.health} 
 
         if (avatar.x < countryIndia.x + countryIndia.w &&
-        avatar.x + avatar.width > countryIndia.x &&
+        avatar.x + avatar.w > countryIndia.x &&
         avatar.y < countryIndia.y + countryIndia.h &&
-        avatar.y + avatar.height > countryIndia.y) {
+        avatar.y + avatar.h > countryIndia.y) {
         if(frames % 1 === 0){ready = true};
         if(ready){
-            refreshImage();
             document.getElementById('explorer-health').innerHTML = avatar.health;
             enlargeIconIndia();
             document.getElementById('current-country').innerHTML = `India`
@@ -512,15 +502,14 @@ window.onload = () => {
     }
     // DETECT COLLISION --> AVATAR/AUSTRALIA
     function detectCollisionAUS(avatar, countryAUS){
-        var avatar = {x: avatar.x, y: avatar.y, width: 20, height: 20, health: avatar.health} 
+        var avatar = {x: avatar.x, y: avatar.y, w: avatar.w, h: avatar.h, health: avatar.health} 
 
         if (avatar.x < countryAUS.x + countryAUS.w &&
-        avatar.x + avatar.width > countryAUS.x &&
+        avatar.x + avatar.w > countryAUS.x &&
         avatar.y < countryAUS.y + countryAUS.h &&
-        avatar.y + avatar.height > countryAUS.y) {
+        avatar.y + avatar.h > countryAUS.y) {
         if(frames % 1 === 0){ready = true};
         if(ready){
-            refreshImage();
             document.getElementById('explorer-health').innerHTML = avatar.health;
             enlargeIconAUS();
             document.getElementById('current-country').innerHTML = `Australia`
@@ -533,15 +522,14 @@ window.onload = () => {
 
     // DETECT COLLISION --> AVATAR/ARGENTINA
     function detectCollisionARG(avatar, countryARG){
-        var avatar = {x: avatar.x, y: avatar.y, width: 20, height: 20, health: avatar.health} 
+        var avatar = {x: avatar.x, y: avatar.y, w: avatar.w, h: avatar.h, health: avatar.health} 
 
         if (avatar.x < countryARG.x + countryARG.w &&
-        avatar.x + avatar.width > countryARG.x &&
+        avatar.x + avatar.w > countryARG.x &&
         avatar.y < countryARG.y + countryARG.h &&
-        avatar.y + avatar.height > countryARG.y) {
+        avatar.y + avatar.h > countryARG.y) {
         if(frames % 1 === 0){ready = true};
         if(ready){
-            refreshImage();
             document.getElementById('explorer-health').innerHTML = avatar.health;
             enlargeIconARG();
             document.getElementById('current-country').innerHTML = `Argentina`
@@ -578,6 +566,7 @@ window.onload = () => {
     
         detectCovidCollision(avatar);
         detectMaskCollision(avatar);
+        detectCollisionWHO(avatar, who);
         
         detectCollisionUSA(avatar, countryUSA);
         detectCollisionUK(avatar, countryUK);
