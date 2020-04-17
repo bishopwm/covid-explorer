@@ -52,7 +52,7 @@ body {
 }
 
 #start-button-mobile {
-    width: 200px;
+    width: 360px;
     height: 100px;
     font-size: 2em;
     border-radius: 10px;
@@ -60,7 +60,6 @@ body {
     color: white;
     margin-top: 460px;
     margin-left: 0px;
-    width: 420px;
     position: absolute;
     visibility: visible;
 }
@@ -97,9 +96,12 @@ body {
     #instructions {
         margin-top: 60px;
         margin-left: 0px;
-        width: 360px;
+        width: 300px;
         height: 600px;
         /* margin-top: 640px; */
+    }
+    #title {
+        margin-left: 0;
     }
 }
 

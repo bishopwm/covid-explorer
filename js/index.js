@@ -408,8 +408,9 @@ window.onload = () => {
         avatar.y + avatar.h > who.y) {
         if(frames % 1 === 0){ready = true};
         if(ready){
-        document.getElementById("mask-fact").style = "visibility: visible;";
-        document.getElementById("country-welcome").innerHTML = `Friendly reminder from the World Health Org!`
+            if(screen.width >=500) {
+            document.getElementById("mask-fact").style = "visibility: visible;";
+            document.getElementById("country-welcome").innerHTML = `Friendly reminder from the World Health Org!`
             $('#mask-fact')
                 .delay(500)
                 .queue(function (next) { 
@@ -417,7 +418,8 @@ window.onload = () => {
                     next(); 
                 });
             }
-        };
+        }
+    };
     } 
 
 
