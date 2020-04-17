@@ -228,7 +228,7 @@ window.onload = () => {
         w: 60,
         h: 60,
         image: avatarimage,
-        health: 30000
+        health: 100
     }
 
     // DECLARE COUNTRIES
